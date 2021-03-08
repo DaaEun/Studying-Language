@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<!--
+		# 이벤트 리스너(event listener)
+		- 이벤트가 발생했을 때 그 처리를 담당하는 함수를 가리키며, 이벤트 핸들러(event handler)라고도 한다.
+		- 지정된 타입의 이벤트가 특정 요소에서 발생하면, 웹 브라우저는 그 요소에 등록된 이벤트 리스너를 실행시킨다.
+
+		# 이벤트 리스너 등록
+		작성된 이벤트 리스너는 먼저 해당 객체나 요소에 등록되어야만 호출될 수 있다.
+
+		1. 이벤트의 대상이 되는 객체나 요소에 프로퍼티로 등록하는 방법
+		2. 객체나 요소의 메소드에 이벤트 리스너를 전달하는 방법
+	-->
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript EventListener</title>
+</head>
+<body>
+	<!--
+		# 객체나 요소에 프로퍼티로 등록하는 방법
+
+		1. 자바스크립트 코드에서 프로퍼티로 등록
+		2. HTML 태그에 속성으로 등록
+	-->
+
+	<!--
+		- 프로퍼티로 등록하는 방법은 거의 모든 브라우저가 대부분의 이벤트 타입을 지원하고 있다.
+		- 단점은 이벤트 타입별로 오직 하나의 이벤트 리스너만을 등록할 수 있다는 점이다.
+	-->
+	<h1>자바스크립트 코드에서 프로퍼티로 등록</h1>
+	<p id="text">이 문자열은 HTML 문서가 로드되면 다른 문자열로 바뀔 것입니다.</p>
+	<script>
+		window.onload = function() {	// 이 함수는 HTML 문서가 로드될 때 실행됨.
+			var text = document.getElementById("text");		// 아이디가 "text"인 요소를 선택함.
+			text.innerHTML = "HTML 문서가 로드되었습니다.";
+		}
+	</script>
+
+	<!--
+		- HTML 태그에 속성으로 이벤트 리스너를 등록할 수도 있다.
+		- 단점으로는 HTML 코드에 자바스크립트 코드가 추가됨으로써 가독성이 안 좋아지며, 유지보수도 힘들어진다.
+	-->
+	<h1>HTML 태그 내의 속성으로 등록</h1>
+	<p onclick="alert('문자열을 클릭했어요!')">이 문자열을 클릭해 보세요!</p>
+		
+
+	<!--
+		# 객체나 요소의 메소드에 이벤트 리스너를 전달하는 방법
+
+		1. addEventListener()
+		2. attachEvent()
+	-->
+
+	<!--
+		# addEventListener()
+
+		대상객체.addEventListener(이벤트명, 실행할이벤트리스너, 이벤트전파방식)
+
+		1. 이벤트 명 : 이벤트 리스너를 등록할 이벤트 타입을 문자열로 전달
+		2. 실행할 이벤트 리스너 : 지정된 이벤트가 발생했을 때 실행할 이벤트 리스너를 전달
+		3. 이벤트 전파 방식 : false면 버블링(bubbling) 방식으로, true면 캡처링(capturing) 방식으로 이벤트를 전파
+		* 이벤트 리스너를 프로퍼티로 등록할 때는 "on"이 붙은 이벤트 타입을 사용하지만, 
+		addEventListener() 메소드에서는 "on"이 붙지 않은 이벤트 타입을 사용해야 한다.
+	-->
+	<h1>addEventListener() 메소드</h1>
+	<button id="btn2">텍스트 보여주기!</button>
+	<p id="text2"></p>
+	<script>
+		var showBtn = document.getElementById("btn2");	// 아이디가 "btn"인 요소를 선택함.
+		showBtn.addEventListener("click", showText);	// 선택한 요소에 click 이벤트 리스너를 등록함.
+		function showText() {
+			document.getElementById("text2").innerHTML = "짜잔~!! 텍스트가 나타났어요!!";
+		}
+	</script>
+
+	<!-- # 여러 개의 이벤트 리스너 등록 -->
+	<h1>여러 개의 이벤트 리스너 등록</h1>
+	<p>아래 버튼에 마우스를 올리거나 클릭해 보세요!</p>
+	<button id="btn3">버튼</button>
+	<p id="text3"></p>
+	<script>
+		var btn = document.getElementById("btn3");			// 아이디가 "btn"인 요소를 선택함.
+		btn.addEventListener("click", clickBtn);			// 선택한 요소에 click 이벤트 리스너를 등록함.
+		btn.addEventListener("mouseover", mouseoverBtn);	// 선택한 요소에 mouseover 이벤트 리스너를 등록함.
+		btn.addEventListener("mouseout", mouseoutBtn);		// 선택한 요소에 mouseout 이벤트 리스너를 등록함.
+
+		function clickBtn() {
+			document.getElementById("text3").innerHTML = "버튼이 클릭됐어요!";
+		}
+		function mouseoverBtn() {
+			document.getElementById("text3").innerHTML = "버튼 위에 마우스가 있네요!";
+		}
+		function mouseoutBtn() {
+			document.getElementById("text3").innerHTML = "버튼 밖으로 마우스가 나갔어요!";
+		}
+	</script>
+
+	<!-- # 이벤트 리스너 삭제 -->
+	<h1>이벤트 리스너 삭제</h1>
+	<p>아래 버튼에 마우스를 올리거나 클릭해 보세요!</p>
+	<button id="btn4">삭제 버튼</button>
+	<p id="text4"></p>
+	<script>
+		var btn = document.getElementById("btn4");			// 아이디가 "btn"인 요소를 선택함.
+		btn.addEventListener("click", clickBtn);			// 선택한 요소에 click 이벤트 리스너를 등록함.
+		btn.addEventListener("mouseover", mouseoverBtn);	// 선택한 요소에 mouseover 이벤트 리스너를 등록함.
+		btn.addEventListener("mouseout", mouseoutBtn);		// 선택한 요소에 mouseout 이벤트 리스너를 등록함.
+
+		function clickBtn() {
+			btn.removeEventListener("mouseover", mouseoverBtn);
+			btn.removeEventListener("mouseout", mouseoutBtn);
+			document.getElementById("text4").innerHTML = "이벤트 리스너가 삭제되었어요!";
+		}
+		function mouseoverBtn() {
+			document.getElementById("text4").innerHTML = "버튼 위에 마우스가 있네요!";
+		}
+		function mouseoutBtn() {
+			document.getElementById("text4").innerHTML = "버튼 밖으로 마우스가 나갔어요!";
+		}
+	</script>
+</body>
+</html>

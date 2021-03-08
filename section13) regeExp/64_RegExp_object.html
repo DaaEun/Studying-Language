@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<!--
+		# RegExp 객체
+
+		new RegExp(검색패턴[, 플래그]);
+
+		1. 검색 패턴을 나타내는 정규 표현식은 따옴표나 슬래시(/)로 감싸야 한다.
+		2. 기본 검색 설정을 변경할 수 있는 플래그는 필요할 때만 전달할 수 있다.
+
+		# RegExp.prototype 메소드
+		- 모든 RegExp 인스턴스는 RegExp.prototype으로부터 메소드와 프로퍼티를 상속받는다.
+		- 상속받은 RegExp.prototype 메소드를 사용하여 정규 표현식을 표현할 수 있다.
+
+		1. RegExp.prototype.exec()
+		2. RegExp.prototype.test()
+	-->
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript RegExp Object</title>
+</head>
+<body>
+	<!--
+		# exec() 메소드
+		- 인수로 전달된 문자열에서 특정 패턴을 검색하여, 패턴과 일치하는 문자열을 반환한다.
+		- 만약에 패턴과 일치하는 문자열이 없으면 null을 반환한다.
+	-->
+	<h1>exec() 메소드</h1>
+	<p id="text"></p>
+	<script>
+		var targetStr = "abbcdefabgh";
+		var firstResult = /ab+/.exec(targetStr);		// 패턴과 일치하는 문자열이 여러 개인 경우
+		var secondResult = /abbb+/.exec(targetStr);		// 패턴과 일치하는 문자열이 하나도 없는 경우
+		document.getElementById("text").innerHTML = firstResult + "<br>" + secondResult;
+	</script>
+
+	<!--
+		# test() 메소드
+		- 인수로 전달된 문자열에 특정 패턴과 일치하는 문자열이 있는지를 검색한다.
+		- 만약에 패턴과 일치하는 문자열이 있으면 true를, 없으면 false를 반환한다.
+	-->
+	<h1>test() 메소드</h1>
+	<p id="text2"></p>
+	<script>
+		var targetStr2 = "abbcdefabgh";
+		var firstResult2 = /ab+/.test(targetStr2);		// 패턴과 일치하는 문자열이 여러 개인 경우
+		var secondResult2 = /abbb+/.test(targetStr2);		// 패턴과 일치하는 문자열이 하나도 없는 경우
+		document.getElementById("text2").innerHTML = firstResult2 + "<br>" + secondResult2;
+	</script>
+
+
+	<!--
+		# RegExp.prototype 프로퍼티
+
+		1.  RegExp.prototype.global
+			검색 패턴을 비교할 때 일치하는 모든 부분을 선택하도록 설정하는 플래그인 'g'를 가리킴.
+		2.  RegExp.prototype.ignoreCase
+			검색 패턴을 비교할 때 대소문자를 구분하지 않도록 설정하는 플래그인 'i'를 가리킴.
+		3.  RegExp.prototype.multiline
+			검색 패턴을 비교할 때 여러 줄의 입력 문자열을 그 상태 그대로 여러 줄로 비교하도록 설정하는 플래그인 'm'을 가리킴.
+		4.  RegExp.prototype.source
+			검색 패턴이 포함하고 있는 문자열을 가리킴.
+	-->
+</body>
+</html>

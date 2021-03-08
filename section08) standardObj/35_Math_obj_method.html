@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<!--
+		# Math 객체
+		- 수학에서 자주 사용하는 상수와 함수들을 미리 구현해 놓은 자바스크립트 표준 내장 객체이다.
+
+		- Math 객체는 다른 전역 객체와는 달리 생성자(constructor)가 존재하지 않는다.
+		- 따로 인스턴스를 생성하지 않아도 Math 객체의 모든 메소드나 프로퍼티를 바로 사용할 수 있다.
+
+
+		# Math 메소드
+
+		1. Math.min() : 인수로 전달받은 값 중에서 가장 작은 수를 반환
+		2. Math.max() : 인수로 전달받은 값 중에서 가장 큰 수를 반환
+		3. Math.random() : 0보다 크거나 같고 1보다 작은 무작위 숫자(random number)를 반환
+		4. Math.round() : 인수로 전달받은 값을 소수점 첫 번째 자리에서 반올림하여 그 결괏값을 반환
+		5. Math.floor() : 인수로 전달받은 값과 같거나 작은 수 중에서 가장 큰 정수를 반환
+		6. Math.ceil() : 인수로 전달받은 값과 같거나 큰 수 중에서 가장 작은 정수를 반환
+		7. Math.sin() : 인수로 전달받은 값의 사인(sine) 함숫값을 반환
+
+
+		# 자바스크립트 Math 프로퍼티
+
+		- Math.E		오일러의 수(Euler's constant)라고 불리며, 자연로그(natural logarithms)의 밑(base) 값	
+		- Math.LN2		2의 자연로그 값
+		- Math.LN10		10의 자연로그 값	
+		- Math.LOG2E	오일러 수(e)의 밑 값이 2인 로그 값	
+		- Math.LOG10E	오일러 수(e)의 밑 값이 10인 로그 값
+		- Math.PI		원의 원주를 지름으로 나눈 비율(원주율) 값	
+		- Math.SQRT1_2	2의 제곱근의 역수 값	
+		- Math.SQRT2	2의 제곱근 값
+	-->
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript  Math Method</title>
+</head>
+<body>
+	<h1>Math.min() 메소드</h1>
+	<script>
+		document.write(Math.min() + "<br>");								// Infinity
+		document.write(Math.min(1, 10, -100, -10, 1000, 0) + "<br>");		// -100
+		document.write(Math.min(1, 10, -100, -10, "-1000", 0) + "<br>");	// -1000
+		document.write(Math.min(1, 10, -100, -10, "문자열", 0));			// NaN
+	</script>
+
+	<h1>Math.max() 메소드</h1>
+	<script>
+		document.write(Math.max() + "<br>");								// -Infinity
+		document.write(Math.max(1, 10, -100, -10, 100, 0) + "<br>");		// 100
+		document.write(Math.max(1, 10, -100, -10, "1000", 0) + "<br>");		// 1000
+		document.write(Math.max(1, 10, -100, -10, "문자열", 0));			// NaN
+	</script>
+
+	<h1>Math.random() 메소드</h1>
+	<p>결과보기를 다시 누를 때마다 다른 랜덤 숫자가 생성됩니다.</p>
+	<script>
+		var min = 10, max = 20;
+		document.write(Math.random() + "<br>");				// [0, 1)
+		document.write(Math.random() * (max - min) + min);	// [min, max)
+	</script>
+
+	<h1>Math.round() 메소드</h1>
+	<script>
+		document.write(Math.round(10.49) + "<br>");		// 10
+		document.write(Math.round(10.5) + "<br>");		// 11
+		document.write(Math.round(-10.5) + "<br>");		// -10
+		document.write(Math.round(-10.51));				// -11
+	</script>
+
+	<h1>Math.floor() 메소드</h1>
+	<script>
+		document.write(Math.floor(10.95) + "<br>");		// 10
+		document.write(Math.floor(11.01) + "<br>");		// 11
+		document.write(Math.floor(-10.95) + "<br>");	// -11
+		document.write(Math.floor(-11.01));				// -12
+	</script>
+
+	<h1>Math.ceil() 메소드</h1>
+	<script>
+		document.write(Math.ceil(10.95) + "<br>");		// 11
+		document.write(Math.ceil(11.01) + "<br>");		// 12
+		document.write(Math.ceil(11) + "<br>");			// 11
+		document.write(Math.ceil(-10.95) + "<br>");		// -10
+		document.write(Math.ceil(-11.01));				// -11
+	</script>
+
+	<h1>Math.sin() 메소드</h1>
+	<script>
+		document.write(Math.sin(0) + "<br>");	// 0
+		document.write(Math.sin(Math.PI / 2));	// 1
+	</script>
+</body>
+</html>

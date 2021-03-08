@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<!--
+		# 브라우저 객체 모델(BOM)
+		- 자바스크립트를 이용하면 브라우저의 정보에 접근하거나 브라우저의 여러 기능들을 제어할 수 있다.
+		- 이때 사용하는 객체 모델이 브라우저 객체 모델(BOM, Browser Object Model)이다.
+	
+		- BOM 은 DOM 과는 달리 W3C의 표준 객체 모델은 아니다.
+		- 하지만 이 모델은 브라우저의 기능적인 요소들을 직접 제어하고 관리할 방법을 제공해 준다.
+		- 이러한 BOM 모델의 객체들을 전역 객체(global object)로 사용할 수 있다.
+
+
+		# Window 객체
+		- 웹 브라우저의 창(window)을 나타내는 객체로, 대부분의 웹 브라우저에서 지원하고 있다.
+	
+		- 모든 객체, 전역 함수, 전역 변수들은 자동으로 window 객체의 프로퍼티가 된다.
+		- window 객체의 메소드는 전역 함수이며, window 객체의 프로퍼티는 전역 변수가 된다.
+		- 문서 객체 모델(DOM)의 요소들도 모두 window 객체의 프로퍼티가 된다.
+	-->
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript BOM Window Object</title>
+</head>
+<body>
+	<!--
+		# 브라우저 창 크기 조절
+		- innerHeight와 innerWidth 프로퍼티를 이용하면, 브라우저의 창 크기를 설정할 수 있다.
+		- 브라우저 창이란 웹 브라우저의 뷰포트(viewport)를 의미하며, 브라우저의 툴바나 스크롤 바는 포함되지 않는다.
+
+		// 기본 문법
+		window.innerHeight
+		window.innerWidth
+		// 익스플로러 5부터 7버전만을 위한 문법 1
+		document.documentElement.clientHeight
+		document.documentElement.clientWidth
+		// 익스플로러 5부터 7버전만을 위한 문법 2
+		document.body.clientHeight
+		document.body.clientWidth
+	-->
+	<h1>브라우저 창 크기 조절</h1>
+	<p>웹 브라우저의 창 크기를 조절한 뒤에 결과보기를 다시 눌러보세요!</p>
+	<script>
+		var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+		var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+		document.write("웹 브라우저의 너비는 " + windowWidth + "픽셀이고, 높이는 " + windowHeight + "픽셀입니다.");
+	</script>
+
+	<h1>window 접두사의 생략</h1>
+	<script>
+		alert("전역 함수 호출시 window 접두사 생략 가능함!");						// 전역 함수
+		document.write("현재 브라우저의 수평 위치는 " + screenX + "입니다.<br>");	// 전역 변수
+		document.write("현재 브라우저의 수직 위치는 " + screenY + "입니다.<br>");	// 전역 변수
+		document.write(document.title);												// 전역 객체
+	</script>
+
+	<!--
+		# 브라우저 새 창 열기
+		- open() 메소드를 이용하면, 새로운 브라우저 창을 열 수 있다.
+		- 또한, 새로운 브라우저 창의 세부적인 옵션들도 일일이 설정할 수 있다.
+	-->
+	<h1>브라우저 새 창 열기</h1>
+	<button onclick="openWindow()">새로운 창 열기</button>
+	<script>
+		var newWindowObj;
+		// 변수 strWindowFeatures를 통해 새롭게 여는 웹 브라우저 창의 옵션들을 일일이 설정할 수 있음.
+		var strWindowFeatures = "menubar = yes,location = yes,resizable = yes,scrollbars = yes,status = yes";
+		function openWindow() {
+			newWindowObj = window.open("http://www.tcpschool.com/html/intro", "HTML 개요", strWindowFeatures);
+		}
+	</script>
+
+	<!--
+		# 브라우저 창 닫기
+		- close() 메소드를 이용하면, 현재 브라우저나 특정 브라우저 창을 닫을 수 있다.
+	-->
+	<h1>브라우저 창 닫기</h1>
+	<button onclick="openWindow()">새로운 창 열기</button>
+	<button onclick="closeNewWindow()">새로 연 창 닫기</button>
+	<script>
+		var newWindowObj;
+		var strWindowFeatures = "menubar = yes,location = yes,resizable = yes,scrollbars = yes,status = yes";
+		function openWindow() {
+			newWindowObj = window.open("http://www.tcpschool.com/html/intro", "HTML 개요", strWindowFeatures);
+		}
+		function closeNewWindow() {	// 새롭게 연 브라우저 창을 window 객체를 이용하여 다시 닫을 수 있음.
+			newWindowObj.close();
+		}
+	</script>
+</body>
+</html>

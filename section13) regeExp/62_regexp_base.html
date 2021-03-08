@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<!--
+		# 정규 표현식(regular expression)
+		- 문자열에서 특정한 규칙을 가지는 문자열의 집합을 찾아내기 위한 검색 패턴이다.
+
+		# 정규 표현식의 생성
+
+		1. 정규 표현식 리터럴을 이용한 생성
+		2. RegExp 객체를 이용한 생성
+		
+		/검색패턴/플래그
+	-->
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Regular Expression</title>
+</head>
+<body>
+	<h1>정규 표현식의 생성</h1>
+	<p id="text"></p>
+	<script>
+		var regStr = /a+bc/;				// 정규 표현식 리터럴을 이용한 생성
+		var regObj = new RegExp("a+bc");	// RegExp 객체를 이용한 생성
+		document.getElementById("text").innerHTML = regStr + "<br>" + regObj;
+	</script>
+
+	<!-- # 단순한 패턴 검색 : 찾고자 하는 문자열을 직접 나열 -->
+	<h1>단순한 패턴 검색</h1>
+	<p id="text"></p>
+	<script>
+		var targetStr = "간장 공장 공장장은 강 공장장이고, 된장 공장 공장장은 장 공장장이다."
+		var strReg1 = /공장/;
+		var strReg2 = /장공/;
+		
+		document.write(targetStr.search(strReg1) + "<br>");
+		document.write(targetStr.search(strReg2));
+	</script>
+	<!--
+		- 첫 번째 정규 표현식은 해당 문자열의 부분 문자열인 "공장"과 총 6번 일치한다.
+		- 하지만 search() 메소드는 일치하는 문자열 중에서 첫 번째 문자열의 인덱스만을 반환한다.
+	
+		- 두 번째 정규 표현식은 해당 문자열이 "장 공"이라는 부분 문자열은 포함하고 있지만, 
+		정확히 "장공"이라는 부분 문자열을 포함하지 않으므로, 아무것도 일치하지 않는다.
+		- 해당 문자열에서 인수로 전달받은 정규 표현식과 일치하는 부분 문자열을 찾지 못하여 -1을 반환한다.
+	-->
+
+
+	<!--
+		# 플래그(flags)
+		- 플래그를 사용하여 기본 검색 설정을 변경할 수 있다.
+		- 설정된 플래그는 나중에 추가되거나 삭제될 수 없다.
+
+		i	:	검색 패턴을 비교할 때 대소문자를 구분하지 않도록 설정함.
+		g	: 	검색 패턴을 비교할 때 일치하는 모든 부분을 선택하도록 설정함.
+		m	:	검색 패턴을 비교할 때 여러 줄의 입력 문자열을 그 상태 그대로 여러 줄로 비교하도록 설정함.
+		y	:	대상 문자열의 현재 위치부터 비교를 시작하도록 설정함.
+	-->
+	<h1>정규 표현식의 플래그</h1>
+	<p id="text"></p>
+	<script>
+		var targetStr2 = "bcabcAB";
+		var strReg = /AB/;				// 검색 패턴 비교 시 기본 설정으로 대소문자를 구분함.
+		var strUsingFlag = /AB/i;		// new RegExp("AB", "i")와 동일함.
+		document.getElementById("text").innerHTML = 
+			targetStr2.search(strReg) + "<br>" + targetStr2.search(strUsingFlag);
+	</script>
+</body>
+</html>

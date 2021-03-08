@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <!--
+        # 변수의 선언과 초기화
+        변수(variable)란 데이터(data)를 저장할 수 있는 메모리 공간을 의미하며, 그 값이 변경될 수 있다.
+        자바스크립트에서는 var 키워드를 사용하여 변수를 선언한다.
+        자바스크립트에서는 선언되지 않은 변수를 사용하려고 하거나 접근하려고 하면 오류가 발생한다.
+        단, 선언되지 않은 변수를 초기화할 경우에는 자동으로 선언을 먼저 한 후 초기화를 진행한다.
+
+        var month; // month라는 이름의 변수 선언
+        date = 25; // date라는 이름의 변수를 묵시적으로 선언
+    -->
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Variables</title>
+</head>
+<body>
+    <!-- 선언된 변수는 나중에 초기화할 수도 있고, 선언과 동시에 초기화할 수도 있다. -->
+    <h1>변수의 선언과 초기화</h1>
+	<p id="date"></p>
+	<script>
+		var month;		// 변수의 선언
+		var date = 25;	// 변수의 선언과 동시에 초기화
+		month = 12;		// 변수의 초기화
+		
+		document.getElementById("date").innerHTML = 
+			"크리스마스는 " + month + "월 " + date + "일입니다.";
+	</script>
+
+    <!-- 쉼표(,) 연산자를 이용하여 여러 변수를 동시에 선언하거나 초기화할 수도 있다. -->
+    <h1>여러 변수의 선언과 초기화</h1>
+	<p id="date2"></p>
+	<script>
+		var month, date;
+		var hours = 7, minutes = 15;
+		month = 10, date = 5;
+		
+		document.getElementById("date2").innerHTML = 
+			"이번 모임의 날짜는 " + month + "월 " + date + "일입니다.<br>";
+		document.getElementById("date2").innerHTML += 
+			hours + "시 " + minutes + "분까지 꼭 와주세요!";
+	</script>
+
+    <!--
+        # 변수의 타입과 초깃값
+        자바스크립트의 변수는 타입이 정해져 있지 않으며, 같은 변수에 다른 타입의 값을 다시 대입할 수도 있다.
+        이렇게 한 변수에 다른 타입의 값을 여러 번 대입할 수는 있지만, 한 번 선언된 변수를 재선언할 수는 없다.
+    -->
+    <h1>같은 변수에 다른 타입의 값 할당</h1>
+	<p id="result"></p>
+	<script>
+		var num = 10;		// 변수의 선언과 함께 초기화
+		document.getElementById("result").innerHTML = num + "<br>";
+		num = [10, 20, 30];	// 배열 할당
+		document.getElementById("result").innerHTML += num + "<br>";
+		var num; 			// 이 재선언문은 무시됨.
+		document.getElementById("result").innerHTML += num;
+	</script>
+
+    <!-- 자바스크립트에서 선언만 되고 초기화하지 않은 변수는 undefined 값을 갖는다. -->
+    <h1>초기화하지 않은 변수의 값</h1>
+    <p id="result2"></p>
+    <script>
+        var num2;	// 변수의 선언
+        document.getElementById("result2").innerHTML = num2 + "<br>";
+        num2 = 10;	// 변수의 초기화
+        document.getElementById("result2").innerHTML += num2;
+    </script>
+
+    <!--
+        # 변수의 이름
+        자바스크립트에서 변수는 이름을 가지고 식별하므로, 변수의 이름은 식별자(identifier)이다.
+        변수의 이름은 영문자(대소문자), 숫자, 언더스코어(_) 또는 달러($)로만 구성된다.
+        또한, 숫자와의 구분을 빠르게 하려고 숫자로는 시작할 수 없다.
+        이러한 변수의 이름은 대소문자를 구분하며, 자바스크립트 언어에서 예약된 키워드는 이름으로 사용할 수 없다. 
+    -->
+</body>
+</html>

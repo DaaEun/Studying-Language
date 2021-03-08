@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Object</title>
+</head>
+
+<body>
+    <!--
+        # 자바스크립트 객체
+
+        객체란 이름(name)과 값(value)으로 구성된 프로퍼티(property)의 정렬되지 않은 집합이다.
+        프로퍼티의 값으로 함수가 올 수도 있는데, 이러한 프로퍼티를 메소드(method)라고 한다.
+    -->
+	<h1>객체의 개념</h1>
+	<script>
+		var cat = "나비"; // 일반적인 변수의 선언
+		// 객체도 많은 값을 가지는 변수의 하나임.
+		var kitty = { 
+            name: "나비", 
+            family: "코리안 숏 헤어", 
+            age: 1, 
+            weight: 0.1 };
+		document.write(cat + "<br>");
+		document.write(kitty.name);
+	</script>
+
+    <h1>객체의 프로퍼티 참조</h1>
+    <script>
+        var person = {
+            name: "홍길동",			// 이름 프로퍼티를 정의함.
+            birthday: "030219",		// 생년월일 프로퍼티를 정의함.
+            pId: "1234567",			// 개인 id 프로퍼티를 정의함.
+            fullId: function() {	// 생년월일과 개인 id를 합쳐서 주민등록번호를 반환함.
+                return this.birthday + this.pId;
+            }
+        };
+        document.write(person.name + "<br>");	// 홍길동
+        document.write(person["name"] + "<br>");			// 홍길동
+        document.write(person.fullId() + "<br>");	// 0302191234567
+		document.write(person.fullId);				// function () { return this.birthday + this.pId; } 
+    </script>
+	
+</body>
+
+</html>

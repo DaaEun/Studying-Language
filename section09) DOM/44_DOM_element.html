@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<!--
+		# DOM 요소의 선택
+		
+		1. HTML 태그 이름(tag name)을 이용한 선택
+		2. 아이디(id)를 이용한 선택
+		3. 클래스(class)를 이용한 선택
+		4. name 속성(attribute)을 이용한 선택
+		5. CSS 선택자(selector)를 이용한 선택
+		6. HTML 객체 집합(object collection)을 이용한 선택
+	-->
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript DOM Element</title>
+</head>
+<body>
+	<!-- 1. HTML 태그 이름(tag name)을 이용한 선택 -->
+	<h1>HTML 태그 이름을 이용한 선택</h1>
+	<ul>
+		<li>첫 번째 아이템이에요!</li>
+		<li>두 번째 아이템이에요!</li>
+		<li>세 번째 아이템이에요!</li>
+		<li>네 번째 아이템이에요!</li>
+		<li>다섯 번째 아이템이에요!</li>
+	</ul>
+	<script>
+		var selectedItem = document.getElementsByTagName("li");		// 모든 <li> 요소를 선택함.
+		for (var i = 0; i < selectedItem.length; i++) {
+			selectedItem.item(i).style.color = "red";	// 선택된 모든 요소의 텍스트 색상을 변경함.
+		}
+	</script>
+	<!-- 2. 아이디(id)를 이용한 선택 -->
+	<h1>아이디를 이용한 선택</h1>
+	<ul>
+		<li>첫 번째 아이템이에요!</li>
+		<li id="even">두 번째 아이템이에요!</li>
+		<li>세 번째 아이템이에요!</li>
+		<li id="even">네 번째 아이템이에요!</li>
+		<li>다섯 번째 아이템이에요!</li>
+	</ul>
+	<script>
+		var selectedItem = document.getElementById("even");	// 아이디가 "even"인 요소를 선택함.
+		selectedItem.style.color = "red";					// 선택된 요소의 텍스트 색상을 변경함.
+	</script>
+	<!-- 해당 아이디를 가지고 있는 요소 중에서 첫 번째 요소 단 하나만을 선택 -->
+
+	<!-- 3. 클래스(class)를 이용한 선택 -->
+	<h1>클래스를 이용한 선택</h1>
+	<ul>
+		<li class="odd">첫 번째 아이템이에요!</li>
+		<li>두 번째 아이템이에요!</li>
+		<li class="odd">세 번째 아이템이에요!</li>
+		<li>네 번째 아이템이에요!</li>
+		<li class="odd">다섯 번째 아이템이에요!</li>
+	</ul>
+	<script>
+		var selectedItem = document.getElementsByClassName("odd");	// 클래스가 "odd"인 모든 요소를 선택함.
+		for (var i = 0; i < selectedItem.length; i++) {
+			selectedItem.item(i).style.color = "red";			// 선택된 모든 요소의 텍스트 색상을 변경함.
+		}
+	</script>
+
+	<!-- 4. name 속성(attribute)을 이용한 선택 -->
+	<h1>name 속성을 이용한 선택</h1>
+	<p name="first">첫 번째 단락이에요!</p>
+	<ul>
+		<li name="first">첫 번째 아이템이에요!</li>
+		<li>두 번째 아이템이에요!</li>
+		<li>세 번째 아이템이에요!</li>
+		<li>네 번째 아이템이에요!</li>
+		<li>다섯 번째 아이템이에요!</li>
+	</ul>
+	<script>
+		var selectedItem = document.getElementsByName("first");	// name 속성값이 "first"인 모든 요소를 선택함.
+		for (var i = 0; i < selectedItem.length; i++) {
+			selectedItem.item(i).style.color = "red";			// 선택된 모든 요소의 텍스트 색상을 변경함.
+		}
+	</script>
+
+	<!-- 5. CSS 선택자(selector)를 이용한 선택 -->
+	<h1>CSS 선택자를 이용한 선택</h1>
+	<p class="odd">첫 번째 단락이에요!</p>
+	<ul>
+		<li class="odd">첫 번째 아이템이에요!</li>
+		<li>두 번째 아이템이에요!</li>
+		<li class="odd">세 번째 아이템이에요!</li>
+		<li>네 번째 아이템이에요!</li>
+		<li class="odd">다섯 번째 아이템이에요!</li>
+	</ul>
+	<script>
+		var selectedItem = document.querySelectorAll("li.odd");	// 클래스가 "odd"인 요소 중에서 <li> 요소만을 선택함.
+		for (var i = 0; i < selectedItem.length; i++) {
+			selectedItem.item(i).style.color = "red";			// 선택된 모든 요소의 텍스트 색상을 변경함.
+		}
+	</script>
+
+	<!-- 6. HTML 객체 집합(object collection)을 이용한 선택 -->
+	<h1>HTML 객체 집합을 이용한 선택</h1>
+	<script>
+		var title = document.title;		// <title> 요소를 선택함.
+		document.write(title);
+	</script>
+
+
+	<!-- # DOM 요소의 내용 변경 -->
+	<h1>innerHTML을 이용한 요소의 내용 변경</h1>
+	<p id="text">이 문장을 바꿀 것입니다!</p>
+	<script>
+		var str = document.getElementById("text");
+		str.innerHTML = "이 문장으로 바뀌었습니다!";
+	</script>
+
+	<h1>속성 이름을 이용한 속성값 변경</h1>
+	<a id="link" href="http://tcpschool.com/html/intro">HTML 수업 바로 가기!</a><br><br>
+	<button onclick="changeLink()">자바스크립트 수업으로 바꾸기!</button>
+	
+	<script>
+		function changeLink() {
+			var link = document.getElementById("link");				// 아이디가 "link"인 요소를 선택함.
+			link.href = "http://tcpschool.com/javascript/intro";	// 해당 요소의 href 속성값을 변경함.
+			link.innerHTML = "자바스크립트 수업 바로 가기!";		// 해당 요소의 내용을 변경함.
+		}
+	</script>
+
+
+	<!-- DOM 요소의 스타일 변경 -->
+	<h1>DOM 요소의 스타일 변경</h1>
+	<p id="text">이 문자열의 기본색은 검정색입니다!</p>
+	<button onclick="changeRedColor()">빨간색 글자!</button>
+	<button onclick="changeBlackColor()">검정색 글자!</button>
+	<script>
+		var str = document.getElementById("text");	// 아이디가 "str"인 요소를 선택함.
+		function changeRedColor() {
+			str.style.color = "red";				// 해당 요소의 글자색을 빨간색으로 변경함.
+		}
+		function changeBlackColor() {
+			str.style.color = "black";				// 해당 요소의 글자색을 검정색으로 변경함.
+		}
+	</script>
+</body>
+</html>

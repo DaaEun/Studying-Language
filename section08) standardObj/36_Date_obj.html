@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<!--
+		# 자바스크립트에서의 날짜 표현
+		- Date 객체를 사용하여 매 순간 변화하는 시간과 날짜에 관한 정보를 손쉽게 얻을 수 있다.
+
+		1. 연도(year) : 1900년(00) ~ 1999년(99)
+		2. 월(month) : 1월(0) ~ 12월(11) 
+		3. 일(day) : 1일(1) ~ 31일(31)
+		4. 시(hours) : 0시(0) ~ 23시(23)
+		5. 분(minutes) : 0분(0) ~ 59분(59)
+		6. 초(seconds) : 0초(0) ~ 59초(59)
+
+
+		# Date 객체
+		
+		1. new Date()
+		2. new Date("날짜를 나타내는 문자열")
+		3. new Date(밀리초)
+		4. new Date(년, 월, 일, 시, 분, 초, 밀리초)
+	-->
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Date Object</title>
+</head>
+<body>
+
+	<h1>현재 날짜와 시간으로 Date 객체 생성</h1>
+	<p>결과보기를 다시 누를 때마다 현재 시간이 갱신됩니다.</p>
+	<script>
+		var date = new Date();	// Date 객체 생성
+		document.write(date);
+	</script>
+
+	<h1>특정 날짜와 시간으로 Date 객체 생성</h1>
+	<script>
+		document.write(new Date("December 14, 1977 13:30:00") + "<br>");	// 날짜를 나타내는 문자열
+		document.write(new Date(80000000) + "<br>");						// 1970년 1월 1일 0시부터 해당 밀리초만큼 지난 날짜
+		document.write(new Date(16, 5, 25) + "<br>");						// 3개의 숫자로 나타내는 날짜이며, 시간은 자동으로 00:00:00으로 설정됨.
+		document.write(new Date(16, 5, 25, 15, 40, 0) + "<br>");			// 7개의 숫자로 나타내는 시간과 날짜
+		document.write(new Date(2016, 5, 25, 15, 40, 0));					// 2000년대를 표기하고자 할 때에는 연도 4자리를 전부 표기해야 함.
+	</script>
+
+	<!-- 
+		# 자바스크립트 날짜 양식(date format)
+
+		1. ISO 날짜 양식
+		2. Long 날짜 양식
+		3. Short 날짜 양식 
+		4. Full 날짜 양식
+	-->
+
+	<h1>1. ISO 날짜 양식</h1>
+	<script>
+		document.write(new Date("1977-12-14T13:30:00") + "<br>");	// 날짜와 시간까지 표현함.
+		document.write(new Date("1977-12-14") + "<br>");			// 시간이 생략되면 자동으로 09:00:00으로 설정됨.
+		document.write(new Date("1977-12") + "<br>");				// 일이 생략되면 자동으로 1일로 설정됨.
+		document.write(new Date("1977"));							// 월이 생략되면 자동으로 1월로 설정됨.
+	</script>
+
+	<h1>2. Long 날짜 양식</h1>
+	<script>
+		document.write(new Date("Feb 19 1982") + "<br>");		// MMM DD YYYY
+		document.write(new Date("19 Feb 1982") + "<br>");		// DD MMM YYYY
+		document.write(new Date("February 19 1982") + "<br>");	// 월의 축약형 뿐만 아니라 전체 단어도 인식함.
+		document.write(new Date("FEBRUARY, 19, 1982"));			// 쉼표는 무시되며, 대소문자의 구분은 없음.
+	</script>
+
+	<h1>3. Short 날짜 양식</h1>
+	<script>
+		document.write(new Date("02/19/1982") + "<br>");	// MM/DD/YYYY
+		document.write(new Date("1982/02/19"));				// YYYY/MM/DD
+	</script>
+
+	<h1>4. Full 날짜 양식</h1>
+	<script>
+		document.write(new Date("Wed May 25 2016 17:00:00 GMT+0900 (Seoul Time)") + "<br>");
+		// GMT가 현재 국가와 다른 시간은 현재 국가의 GMT로 변환되어 표현됨.
+		document.write(new Date("Wed May 25 2016 17:00:00 GMT-0500 (New York Time)"));
+	</script>
+	</body>
+</html>
