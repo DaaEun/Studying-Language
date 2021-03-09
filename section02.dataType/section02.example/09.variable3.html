@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Variables</title>
+</head>
+<body>
+    <h1>같은 변수에 다른 타입의 값 할당</h1>
+	<p id="result"></p>
+
+	<script>
+		var num = 10;		// 변수의 선언과 함께 초기화
+		document.getElementById("result").innerHTML = num + "<br>";
+		num = [10, 20, 30];	// 배열 할당
+		document.getElementById("result").innerHTML += num + "<br>";
+		var num; 			// 이 재선언문은 무시됨.
+		document.getElementById("result").innerHTML += num;
+	</script>
+</body>
+</html>

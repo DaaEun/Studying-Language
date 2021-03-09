@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Variables</title>
+</head>
+<body>
+    <h1>여러 변수의 선언과 초기화</h1>
+	<p id="date"></p>
+
+	<script>
+		var month, date;
+		var hours = 9, minutes = 59;
+		month = 2, date = 17;
+		
+		document.getElementById("date").innerHTML = 
+			"4학년 수강신청 날짜는 " + month + "월 " + date + "일입니다.<br>";
+		document.getElementById("date").innerHTML += 
+			hours + "시 " + minutes + "분부터 광클하세요!";
+	</script>
+</body>
+</html>

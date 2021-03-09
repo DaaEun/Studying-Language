@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript DataType</title>
+</head>
+<body> 
+    <h1>null과 undefined</h1>
+    <p id="result"></p>
+    <script>
+        var num;        // 초기화하지 않았으므로 undefined 값을 반환함.
+        var str = null; // object 타입의 null 값
+
+        // 정의되지 않는 변수에 접근하면 undefined 값을 반환함.
+        document.getElementById("result").innerHTML = 
+            (typeof num) + "<br>" + (typeof str) + "<br>" + (typeof numSecond);   
+    </script>
+</body>
+</html>

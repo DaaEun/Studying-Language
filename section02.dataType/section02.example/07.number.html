@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript DataType</title>
+</head>
+<body>
+    <h1>숫자 타입</h1>
+    <p id="number"></p>
+    
+    <script>
+        var firstNum = 10;      //소수점을 사용하지 않는 표현
+        var secondNum = 10.00;  //소수점을 사용한 표현
+        var thirdNum = 10e6;    //10000000
+        var fourthNum = 10e-6;  //0.00001
+
+        document.getElementById("number").innerHTML = firstNum + "<br>" + secondNum + "<br>" +
+        thirdNum + "<br>" + fourthNum + "<br>";
+    </script>
+</body>
+</html>
