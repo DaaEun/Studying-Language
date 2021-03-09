@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Apply</title>
+    <script>
+        function printDate(){
+            document.getElementById("date").innerHTML = Date();
+        }
+    </script>
+</head>
+<body>
+    <h1>head 태그 내의 자바스크립트</h1>
+
+    <button onclick="printDate()">현재 날짜와 시간</button>
+    <p id="date"></p>
+
+    <h1>body 태그 내의 자바스크립트</h1>
+
+    <button onclick="printDate2()">현재 날짜와 시간</button>
+    <p id="date2"></p>
+    <script>
+        function printDate2(){
+            document.getElementById("date2").innerHTML = Date();
+        }
+    </script>
+</body>
+</html>
