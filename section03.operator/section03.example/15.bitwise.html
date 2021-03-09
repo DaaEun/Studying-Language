@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Operators</title>
+</head>
+<body>
+    <h1>비트 연산자</h1>
+    
+	<script>
+		var x = 15, y = -8, z = 15;
+		document.write((x << 1) + "<br>");	// 곱하기 2 => 30
+		document.write((y >> 1) + "<br>");	// 나누기 2 => -4
+		document.write((y >>> 1) + "<br>");	// 부호 비트까지도 전부 오른쪽으로 이동됨. => 2147483644
+		document.write(~z);					// 1의 보수 -(15+1) => -16
+	</script>
+</body>
+</html>

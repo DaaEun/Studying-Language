@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Conditional Statement</title>
+</head>
+<body>
+    <!-- case 절과 default 절에 break 키워드가 없을 때 어떤 현상이 벌어지는가를 보여주는 예제 -->
+    <h1>switch 문(break 없음)</h1>
+	
+	<script>
+		var x = "문자열";
+
+		switch (typeof x) {
+		case "number":
+			document.write("변수 x의 타입은 숫자입니다.<br>");
+		case "string":// 두 번째 case 절 이후에 나오는 모든 실행문이 모두 실행
+			document.write("변수 x의 타입은 문자열입니다.<br>");
+		case "object":
+			document.write("변수 x의 타입은 객체입니다.<br>");
+		default:
+			document.write("변수 x의 타입을 잘 모르겠네요...<br>");
+		}
+	</script>
+</body>
+</html>

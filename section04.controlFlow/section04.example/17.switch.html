@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Conditional Statement</title>
+</head>
+<body>
+    <h1>switch 문</h1>
+
+	<script>
+		var x = 10;
+
+		switch (typeof x) {
+		case "number":
+			document.write("변수 x의 타입은 숫자입니다.");
+			break;
+		case "string":
+			document.write("변수 x의 타입은 문자열입니다.");
+			break;
+		case "object":
+			document.write("변수 x의 타입은 객체입니다.");
+			break;
+		default:
+			document.write("변수 x의 타입을 잘 모르겠네요...");
+			break;
+		}
+	</script>
+</body>
+</html>
