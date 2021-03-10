@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Etc Control Statement</title>
+</head>
+<body>
+    <h1>break 문</h1>
+    <p>배열에서 특정값을 가지고 있는 인덱스를 출력</p>
+	
+    <script>
+		var lectures = ["html", "css", "자바스크립트", "php"];
+		var topic = "자바스크립트";
+
+		for (var i = 0; i < lectures.length; i++) {
+			if (lectures[i] == topic) {
+				document.write(topic + " 과목은 " + (i + 1) + "번째 과목입니다.");
+				break; // 원하는 값을 찾은 후에는 더 이상 for 문을 반복하지 않고 빠져나감.
+			}
+		}
+	</script>
+</body>
+</html>

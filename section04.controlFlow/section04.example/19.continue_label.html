@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Etc Control Statement</title>
+</head>
+<body>
+	<h1>continue 문</h1>
+    <p>라벨을 이용하여 구구단의 값이 홀수인 경우에만 출력</p>
+	
+    <script>
+		gugudan: 
+		for (var i = 2; i <= 9; i++) {
+
+			dan: 
+			for (var j = 1; j <= 9; j++) {
+
+				if ((i*j) % 2 == 0)
+					continue dan;
+				document.write(i + " * " + j + " = " + (i*j) + "<br>");
+			}
+		}
+	</script>
+</body>
+</html>

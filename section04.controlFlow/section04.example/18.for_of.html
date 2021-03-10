@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Iteration Statement</title>
+</head>
+<body>
+    <h1>for / of 문</h1>
+
+	<h3>for 문</h3>
+	<script>
+		var arr = [3, 4, 5, 6, 7, 8];
+
+		for (var i = 0; i < arr.length; i++) { // 배열 arr의 모든 요소의 인덱스(index)를 출력함.
+			document.write(arr[i] + " ");
+		}
+		document.write("<br>");
+	</script>
+
+	<h3>for / of 문</h3>	
+	<script>
+		for (var value of arr) { // 위와 같은 동작을 하는 for / of 문
+			document.write(value + " ");
+		}
+		document.write("<br>");
+	</script>
+</body>
+</html>

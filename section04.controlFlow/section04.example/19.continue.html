@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Etc Control Statement</title>
+</head>
+<body>
+	<h1>continue 문</h1>
+    <p>1부터 100까지의 정수 중에서 5의 배수를 제외하고 출력</p>
+
+	<script>
+		var exceptNum = 5;
+
+		for (var i = 0; i <= 100; i++) {
+			if (i % exceptNum == 0) // exceptNum의 배수는 출력하지 않음.
+				continue;
+			document.write(i + " ");
+		}
+	</script>
+</body>
+</html>
