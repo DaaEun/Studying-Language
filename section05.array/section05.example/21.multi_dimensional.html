@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Array</title>    
+</head>
+<body>
+    <h1>다차원 배열</h1>
+
+	<script>
+		var arr = new Array(3); 		// 3개의 요소를 가지는 배열을 생성함.
+
+		for (var row = 0; row < 3; row++) {
+			arr[row] = new Array(4); 	// 각각의 요소마다 또다시 4개의 요소를 가지는 배열을 생성함.
+            
+			for (var column = 0; column < 4; column++) {
+				arr[row][column] = "[" + row + "," + column + "]"; 	// 각각의 배열 요소를 생성함.
+				document.write(arr[row][column] + " "); 			// 각 배열 요소에 접근함.
+			}
+			document.write("<br>");
+		}
+	</script>
+</body>
+</html>

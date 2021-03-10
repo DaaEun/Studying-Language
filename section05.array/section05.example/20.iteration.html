@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Array</title>
+    <style>
+	    table { border-collapse: collapse; }
+	    tr, td { border: 2px solid orange; padding: 5px }
+	</style>
+</head>
+<body>
+    <h1>배열의 순회</h1>
+	
+	<script>
+		var arr = [1, true, "JavaScript"];
+		var result = "<table><tr>";
+		
+		for (var idx in arr) {
+			result += "<td>" + arr[idx] + "</td>";
+		}
+		result += "</tr></table>";
+
+		document.write(result);
+	</script>
+</body>
+</html>

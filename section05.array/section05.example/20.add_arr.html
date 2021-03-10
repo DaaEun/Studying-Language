@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Array</title>
+    <style>
+	    table { border-collapse: collapse; }
+	    tr, td { border: 2px solid orange; padding: 5px }
+	</style>
+</head>
+<body>
+    <h1>배열 요소의 추가</h1>
+	
+	<script>
+		var arr = [1, true, "Java"];
+		arr.push("Script");				// push() 메소드를 이용하는 방법
+		document.write(arr + "<br>");
+
+		arr[arr.length] = 100;			// length 프로퍼티를 이용하는 방법
+		document.write(arr + "<br>");
+
+		arr[10] = "자바스크립트";		// 특정 인덱스를 지정하여 추가하는 방법
+		document.write(arr + "<br>");
+		document.write(arr[7]);			// undefined
+        /*
+            인덱스에 대응하는 배열 요소가 없는 부분을 배열의 홀(hole)이라고 한다.
+            자바스크립트에서는 이러한 배열의 홀(hole)을 undefined 값을 가지는 요소처럼 취급한다.
+            배열의 홀을 참조하게 되면 undefined 값을 반환하게 된다.
+        */
+	</script>
+</body>
+</html>
