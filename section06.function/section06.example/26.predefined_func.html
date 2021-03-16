@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <!--
+        # 미리 정의된 전역 함수(predefined functions)
+        사용자의 편의를 위해 다양한 기능의 여러 전역 함수를 미리 정의하여 제공한다.
+        이러한 전역 함수는 자바스크립트의 어떤 타입의 객체에서도 바로 사용할 수 있다.
+
+        1. eval()
+        2. isFinite()
+        3. isNaN()
+        4. parseFloat()
+        5. parseInt()
+        6. decodeURI()
+        7. decodeURIComponent()
+        8. encodeURI()
+        9. encodeURIComponent()
+        10. escape()
+        11. unescape()
+        12. Number()
+        13. String()
+    -->
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Predefined Function</title>
+</head>
+<body>
+    <!--
+        1. eval()
+        문자열로 표현된 코드를 실행하는 함수이다.
+
+        eval("문자열");
+    -->
+    <h1>eval() 함수</h1>
+	<script>
+		var x = 10, y = 20;
+		var a = eval("x + y");
+		var b = eval("y * 3");
+		document.write(a + "<br>" + b);
+	</script>
+
+    <!--
+        2. isFinite()
+        전달된 값이 유한한 수인지를 검사하여 그 결과를 반환한다.
+        만약 인수로 전달된 값이 숫자가 아니라면, 숫자로 변환하여 검사한다.
+
+        isFinite(검사할값);
+    -->
+    <h1>isFinite() 함수</h1>
+	<script>
+		document.write(isFinite(123) + "<br>");
+		document.write(isFinite(123e100) + "<br>");
+		document.write(isFinite(0) + "<br>");
+		document.write(isFinite(true) + "<br>");
+		document.write(isFinite(false) + "<br>");
+		document.write(isFinite(null) + "<br>");
+		document.write(isFinite("123") + "<br>");
+		document.write(isFinite("") + "<br>");
+		document.write(isFinite("문자열") + "<br>");
+		document.write(isFinite(undefined) + "<br>");
+		document.write(isFinite(NaN));
+	</script>
+
+    <!--
+        3. isNaN()
+        전달된 값이 NaN인지를 검사하여 그 결과를 반환한다.
+        만약 인수로 전달된 값이 숫자가 아니라면, 숫자로 강제 변환하여 검사한다.
+        전달된 값이 숫자인지 아닌지를 확인하기 위하여 typeof 연산자를 대신 사용할 수도 있다.
+
+        이 함수는 숫자로의 강제 변환에 따라 예상치 못한 결과를 얻을 수 있으므로 
+        ECMAScript 6부터는 Number.isNaN() 메소드의 사용을 권장하고 있다.
+
+        isNaN(검사할값);
+    -->
+    <h1>isNaN() 함수</h1>
+	<script>
+		document.write(isNaN(123) + "<br>");
+		document.write(isNaN(123e100) + "<br>");
+		document.write(isNaN(0) + "<br>");
+		document.write(isNaN(true) + "<br>");
+		document.write(isNaN(false) + "<br>");
+		document.write(isNaN(null) + "<br>");
+		document.write(isNaN("123") + "<br>");
+		document.write(isNaN("") + "<br>");
+		document.write(isNaN("문자열") + "<br>");
+		document.write(isNaN(undefined) + "<br>");
+		document.write(isNaN(NaN));
+	</script>
+
+    <!--
+        4. parseFloat()
+        문자열을 파싱하여 부동 소수점 수(floating point number)로 반환한다.
+
+        parseFloat("문자열");
+    -->
+    <h1>parseFloat() 함수</h1>
+	<script>
+		document.write(parseFloat("123") + "<br>");
+		document.write(parseFloat("123.000") + "<br>");
+		document.write(parseFloat("123.456") + "<br>");
+		document.write(parseFloat("12 34 56") + "<br>");
+		document.write(parseFloat("  123  ") + "<br>");
+		document.write(parseFloat("123 초콜릿") + "<br>");
+		document.write(parseFloat("초콜릿 123"));
+	</script>
+
+    <!--
+        5. parseInt()
+        문자열을 파싱하여 정수로 반환한다.
+
+        parseInt() 함수에 두 번째 인수로 특정 진법을 전달하면, 해당 진법에 맞는 정수로 반환한다.
+        또한, 전달받은 문자열의 시작이 "0x"로 시작하면, 해당 문자열을 16진수로 인식한다.
+
+        parseInt("문자열");
+    -->
+    <h1>parseInt() 함수</h1>
+	<script>
+		document.write(parseInt("123") + "<br>");
+		document.write(parseInt("123.000") + "<br>");
+		document.write(parseInt("123.456") + "<br>");
+		document.write(parseInt("12 34 56") + "<br>");
+		document.write(parseInt("  123  ") + "<br>");
+		document.write(parseInt("123 초콜릿") + "<br>");
+		document.write(parseInt("초콜릿 123") + "<br><br>");
+
+		document.write(parseInt("10", 10) + "<br>");
+		document.write(parseInt("10", 8) + "<br>");
+		document.write(parseInt("10", 16) + "<br>");
+		document.write(parseInt("0x10"));
+	</script>
+
+    <!--
+        8.9. encodeURI()와 encodeURIComponent()
+        encodeURI() 함수는 URI에서 주소를 표시하는 특수문자를 제외하고, 
+        모든 문자를 이스케이프 시퀀스(escape sequences) 처리하여 부호화한다.
+
+        encodeURIComponent() 함수는 URI에서 encodeURI() 함수에서 
+        부호화하지 않은 모든 문자까지 포함하여 이스케이프 시퀀스 처리한다.
+
+        encodeURI(부호화할URI);
+        encodeURIComponent(부호화할URI);
+    -->
+    <h1>encodeURI()와 encodeURIComponent() 함수</h1>
+	<script>
+		var uri = "http://google.com/search.php?name=홍길동&city=서울";
+		var enc1 = encodeURI(uri);
+		var enc2 = encodeURIComponent(uri);
+		document.write(enc1 + "<br>" + enc2);
+	</script>
+
+    <!--
+        6.7. decodeURI()와 decodeURIComponent()
+        decodeURI() 함수는 encodeURI() 함수나 다른 방법으로 만들어진 
+        URI(Uniform Resource Identifier)를 해독한다.
+
+        decodeURIComponent() 함수는 encodeURIComponent() 함수나 다른 방법으로 만들어진 
+        URI 컴포넌트를 해독한다.
+
+        decodeURI(해독할URI);
+        decodeURIComponent(해독할URI);
+    -->
+    <h1>decodeURI()와 decodeURIComponent() 함수</h1>
+	<script>
+		var uri = "http://google.com/search.php?name=홍길동&city=서울";
+		var enc1 = encodeURI(uri);
+		var enc2 = encodeURIComponent(uri);
+		document.write(enc1 + "<br>" + enc2 + "<br><br>");
+
+		var dec1 = decodeURI(enc1);
+		var dec2 = decodeURIComponent(enc2);
+		document.write(dec1 + "<br>" + dec2);
+	</script>
+
+    <!--
+        10.11. escape()와 unescape()
+        escape() 함수는 전달받은 문자열에서 특정 문자들을 16진법 이스케이프 시퀀스 문자로 변환한다.
+
+        unescape() 함수는 전달받은 문자열에서 escape() 함수나 다른 방법으로 만들어진 
+        16진법 이스케이프 시퀀스 문자를 원래의 문자로 변환한다.
+
+        escape("변환할문자열");
+        unescape("원래대로변환할문자열");
+
+        escape() 함수는 자바스크립트 1.5버전부터 더는 지원하지 않으므로, 
+        encodeURI() 함수나 encodeURIComponent() 함수를 대신 사용해야 합니다.
+        unescape() 함수는 자바스크립트 1.5버전부터 더는 지원하지 않으므로,
+        decodeURI() 함수나 decodeURIComponent() 함수를 대신 사용해야 합니다
+    -->
+    <h1>escape()와 unescape() 함수</h1>
+	<script>
+		var str = "Hello!	World ?#$";
+		var esc = escape(str);
+		var une = unescape(esc);
+		document.write(esc + "<br>" + une);
+	</script>
+
+    <!--
+        12. Number()
+        전달받은 객체의 값을 숫자로 반환한다.
+
+        Number(객체);
+    -->
+    <h1>Number() 함수</h1>
+	<script>
+		document.write(Number("123") + "<br>");
+		document.write(Number("123.000") + "<br>");
+		document.write(Number("123.456") + "<br>");
+		document.write(Number("12 34 56") + "<br>");
+		document.write(Number("123 초콜릿") + "<br><br>");
+		
+		document.write(Number(true) + "<br>");
+		document.write(Number(false) + "<br>");
+		document.write(Number(new Date()) + "<br>");     // 현재 날짜에 해당하는 숫자를 반환함.
+		document.write(Number(null));
+	</script>
+
+    <!--
+        13. String()
+        전달받은 객체의 값을 문자열로 반환한다.
+
+        String(객체);
+    -->
+    <h1>String() 함수</h1>
+	<script>
+		document.write(String(123) + "<br>");
+		document.write(String(123.456) + "<br>");
+		document.write(String("123") + "<br>");
+		document.write(String(new Date()) + "<br>");    // 현재 날짜에 해당하는 문자열을 반환함.
+		document.write(String(null) + "<br><br>");
+
+		document.write(String(true) + "<br>");
+		document.write(String(false) + "<br>");
+		document.write(String(Boolean(1)) + "<br>");
+		document.write(String(Boolean(0)));
+	</script>
+</body>
+</html>

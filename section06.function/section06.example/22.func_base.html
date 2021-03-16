@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Function</title>
+</head>
+<body>
+    <!--
+        # 함수(function)란?
+        하나의 특별한 목적의 작업을 수행하도록 설계된 독립적인 블록을 의미한다.
+        필요할 때마다 호출하여 해당 작업을 반복해서 수행할 수 있다.
+
+        자바스크립트에서 블록이란 함수나 실행문의 중괄호({})로 묶여진 부분을 가리킨다.
+    -->
+    <h1>자바스크립트 함수</h1>
+	<script>
+		function addNum(x, y) {
+			return x + y;
+		}
+		document.write(addNum(2, 3));
+	</script>
+
+    <!--
+        # 자바스크립트 함수
+        자바스크립트에서는 함수도 하나의 타입(datatype)
+
+        함수를 변수에 대입하거나, 함수에 프로퍼티를 지정하는 것도 가능하다.
+        또한, 자바스크립트 함수는 다른 함수 내에 중첩되어 정의될 수도 있다.
+
+        # 함수의 정의
+        자바스크립트에서 함수의 정의는 function 키워드로 시작되며, 다음과 같은 구성요소를 가진다.
+
+        1. 함수의 이름
+        2. 괄호 안에 쉼표(,)로 구분되는 함수의 매개변수(parameter)
+        3. 중괄호({})로 둘러싸인 자바스크립트 실행문
+
+        function 함수이름(매개변수1, 매개변수2,...) {
+            함수가 호출되었을 때 실행하고자 하는 실행문;
+        }
+
+        - 함수 이름(function name)은 함수를 구분하는 식별자(identifier)이다.
+        - 매개변수(parameter)란 함수를 호출할 때 인수(argument)로 전달된 값을 
+        함수 내부에서 사용할 수 있게 해주는 변수이다.
+        - 함수의 인수(argument)란 함수가 호출될 때 함수로 값을 전달해주는 변수나 상수를 의미한다.
+    -->
+    <h1>함수의 정의</h1>
+	<script>
+		// addNum라는 이름의 함수를 정의함.
+		function addNum(x, y) {		// x, y는 이 함수의 매개변수임.
+			document.write(x + y);
+		}
+		addNum(2, 3);	// addNum() 함수에 인수로 2와 3을 전달하여 호출함.
+	</script>
+
+    <!--
+        # 반환(return)문
+        자바스크립트에서 함수는 반환(return)문을 포함할 수 있다.
+        반환문을 통해 호출자는 함수에서 실행된 결과를 전달받을 수 있다.
+
+        반환문은 함수의 실행을 중단하고, return 키워드 다음에 명시된 표현식의 값을 호출자에게 반환한다.
+        반환문은 배열이나 객체를 포함한 모든 타입의 값을 반환할 수 있다.
+    -->
+    <h1>함수의 반환문</h1>
+	<script>
+		function multiNum(x, y) {
+			return x * y;			// x와 y를 곱한 결과를 반환함.
+		}
+
+		var num = multiNum(3, 4);	// multiNum() 함수가 호출된 후, 그 반환 값이 변수 num에 저장됨.
+		document.write(num);
+	</script>
+
+    <!--
+        # 함수의 호출
+        정의된 함수는 프로그램 내에서 호출되어야 비로소 실행된다.
+        일반적인 함수의 호출은 함수의 정의문과 같은 형태로 호출할 수 있다.
+
+        - 함수의 정의
+        function addNum(x, y) {
+            return x + y;
+        }
+
+        - 함수의 호출
+        var sum = addNum(3, 5); // 함수 addNum()을 호출하면서, 인수로 3과 5를 전달.
+                                // 함수의 호출이 끝난 뒤에는 그 반환값을 변수 sum에 대입.
+
+        인수(argument)로 전달된 숫자 3과 5는 함수에서 정의된 매개변수(parameter) x와 y에 각각 대입.
+        따라서 호출된 함수의 내부에서는 매개변수 x와 y에 각각 3과 5가 대입되어 계산.
+    -->
+
+    <!--
+        # 값으로서의 함수
+        자바스크립트에서 함수는 문법적 구문일뿐만 아니라 값(value)이기도 한다.
+        따라서 함수가 변수에 대입될 수도 있으며, 다른 함수의 인수로 전달될 수도 있다. 
+    -->
+    <h1>값으로서의 함수</h1>
+	<script>
+		function sqr(x) { 					// 제곱의 값을 구하는 함수 sqr를 정의함.
+			return x * x;
+		}
+		var sqrNum = sqr; 					// 변수 sqrNum에 함수 sqr을 할당함.
+
+		document.write(sqr(4) + "<br>");	// 함수 sqr을 호출함.
+		document.write(sqrNum(4));			// 변수 sqrNum를 함수처럼 호출함.
+	</script>
+</body>
+</html>
