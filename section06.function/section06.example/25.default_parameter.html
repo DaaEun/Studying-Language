@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Parameters and Arguments</title>
+</head>
+<body>
+	<h1>디폴트 매개변수</h1>
+
+	<script>
+		// function mul(a, b) {
+		// 	// 인수가 한 개만 전달되었을 때 나머지 매개변수의 값을 undefined 값이 아닌 1로 설정함.
+		// 	b = (typeof b !== 'undefined')  ? b : 1;
+		// 	return a * b;
+		// }
+		function mul(a, b = 1) { // 인수가 한 개만 전달되면 나머지 매개변수의 값을 언제나 1로 설정해 줌.
+			return a * b;
+		}
+		document.write("인수가 2개 전달되면 반환값은 " + mul(3, 4) + "입니다.<br>");
+		document.write("인수가 1개만 전달되면 반환값은 " + mul(3) + "입니다.");
+	</script>
+</body>
+</html>

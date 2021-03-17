@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Predefined Function</title>
+</head>
+<body>
+    <h1>encodeURI()와 encodeURIComponent() 함수</h1>
+	
+	<script>
+		var uri = "http://google.com/search.php?name=홍길동&city=서울";
+		var enc1 = encodeURI(uri);
+		var enc2 = encodeURIComponent(uri);
+		document.write(enc1 + "<br>" + enc2);
+	</script>
+</body>
+</html>

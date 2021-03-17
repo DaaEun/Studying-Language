@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Variable Scope</title>
+</head>
+<body>
+    <h1>지역 변수</h1>
+	
+	<script>
+		function localNum() {
+			var num = 10;	// 지역 변수 num에 숫자 10을 할당함.
+			document.write("함수 내부에서 변수 num의 타입은 " + typeof num + "입니다.<br>");
+		}
+		localNum();			// 함수 localNum()을 호출함.
+		document.write("함수의 호출이 끝난 뒤 변수 num의 타입은 " + typeof num + "입니다.");
+        /*
+            선언되지 않은 변수를 사용하려고 하거나 접근하려고 하면 오류발생.
+            하지만 선언되지 않은 변수에 대한 typeof 연산자의 결괏값은 undefined 값을 반환.
+        */
+	</script>
+</body>
+</html>

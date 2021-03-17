@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Function</title>
+</head>
+<body>
+    <h1>값으로서의 함수</h1>
+    
+	<script>
+		function sqr(x) { 					// 제곱의 값을 구하는 함수 sqr를 정의함.
+			return x * x;
+		}
+		var sqrNum = sqr; 					// 변수 sqrNum에 함수 sqr을 할당함.
+
+		document.write(sqr(4) + "<br>");	// 함수 sqr을 호출함.
+		document.write(sqrNum(4));			// 변수 sqrNum를 함수처럼 호출함.
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Parameters and Arguments</title>
+</head>
+<body>
+	<h1>나머지 매개변수</h1>
+	
+	<script>
+		// function sub() {
+		// 	var firstNum = arguments[0];	// 첫 번째 인수에서
+		// 	for(var i = 0; i < arguments.length-1; i++) { // 두 번째부터 마지막 인수까지를
+		// 		firstNum -= arguments[i+1];	// 뺌.
+		// 	}
+		// 	return firstNum;
+		// }
+
+		// 첫 번째 인수를 변수 firstNum에 저장하고 나머지 인수들은 배열 restArgs에 저장함.
+		function sub(firstNum, ...restArgs) {
+			for(var i = 0; i < restArgs.length; i++) {
+				firstNum -= restArgs[i];
+			}
+			return firstNum;
+		}
+		document.write(sub(10, 2, 3) + "<br>");	// 10 - 2 - 3 = 5
+		document.write(sub(10, 1, 5, 8));		// 10 - 1 - 5 - 8 = -4
+	</script>
+</body>
+</html>

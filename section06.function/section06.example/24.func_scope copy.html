@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Function Scope</title>
+</head>
+<body>
+    <h1>함수 호이스팅</h1>
+
+	<script>
+		var globalNum = 10;		// globalNum을 전역 변수로 선언함.
+
+		function printNum() {
+			document.write("지역 변수 globalNum 선언 전의 globalNum의 값은 " + globalNum + "입니다.<br>");  // (가)
+			var globalNum = 20;	// globalNum을 지역 변수로 선언함.  // (나)
+			document.write("지역 변수 globalNum 선언 후의 globalNum의 값은 " + globalNum + "입니다.<br>");
+		}
+		printNum();
+        /*
+        (가)의 시점에서는 변수 globalNum가 전역 변수를 가리킨다고 생각하기 쉽다.
+        하지만 내부에서는 함수 호이스팅에 의해 다음과 같이 코드가 변경되어 처리된다.
+
+        # 함수 호이스팅 후의 코드
+
+        var globalNum = 10;
+        function printNum() {
+            var globalNum; // 함수 호이스팅에 의해 변수의 선언 부분이 함수의 맨 처음 부분으로 이동됨.
+            document.write("지역 변수 globalNum 선언 전의 globalNum의 값은 " + globalNum + "입니다.<br>");
+            globalNum = 20;
+            document.write("지역 변수 globalNum 선언 후의 globalNum의 값은 " + globalNum + "입니다.<br>");
+        }
+        printNum();
+
+        (가)의 시점에서는 globalNum라는 지역 변수가 선언만 되어 있고, 아직 초기화만 안 된 상태이다.
+        따라서 이때 globalNum 변수에 접근하면 아직 초기화되지 않은 변수에 접근했으므로, 
+        undefined 값을 반환하게 된다.
+        실제로 변수가 초기화되는 시점은 원래 코드에서 변수가 선언된 (나)의 시점이다.
+
+        자바스크립트에서는 함수 호이스팅이 자동으로 수행되지만, 
+        항상 함수 블록의 첫 부분에 변수를 선언하는 것이 좋다.
+        */
+	</script>
+</body>
+</html>

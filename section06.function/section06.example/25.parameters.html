@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Parameters and Arguments</title>
+</head>
+<body>
+    <h1>함수의 호출 : 적은 수의 인수</h1>
+	
+	<script>
+		function addNum(x, y, z) {	// x, y, z는 매개변수임.
+			return x + y + z;
+		}
+		document.write("인수가 3개 모두 전달되면 반환값은 " + addNum(1, 2, 3) + "입니다.<br>");	
+		document.write("인수가 2개만 전달되면 반환값은 " + addNum(1, 2) + "입니다.<br>");
+		document.write("인수가 1개만 전달되면 반환값은 " + addNum(1) + "입니다.<br>");
+		document.write("인수가 아무것도 전달되지 않으면 반환값은 " + addNum() + "입니다.");
+        // 전달되지 않은 나머지 값이 자동으로 undefined 값으로 설정되어, 산술 연산을 수행할 수 없음.
+	</script>
+
+
+    <h1>함수의 호출2 : 적은 수의 인수</h1>
+
+	<script>
+		function addNum(x, y, z) {
+			if(x === undefined)	// 함수 호출시 x에 해당하는 인수가 전달되지 않은 경우
+				x = 0;			// 변수 x의 값을 undefined에서 0으로 변경함.
+			if(y === undefined) // 함수 호출시 y에 해당하는 인수가 전달되지 않은 경우
+				y = 0;			// 변수 y의 값을 undefined에서 0으로 변경함.
+			if(z === undefined) // 함수 호출시 z에 해당하는 인수가 전달되지 않은 경우
+				z = 0;			// 변수 z의 값을 undefined에서 0으로 변경함.
+			return x + y + z;
+		}
+		document.write("인수가 3개 모두 전달되면 반환값은 " + addNum(1, 2, 3) + "입니다.<br>");
+		document.write("인수가 2개만 전달되면 반환값은 " + addNum(1, 2) + "입니다.<br>");
+		document.write("인수가 1개만 전달되면 반환값은 " + addNum(1) + "입니다.<br>");
+		document.write("인수가 아무것도 전달되지 않으면 반환값은 " + addNum() + "입니다.");
+	</script>
+</body>
+</html>
