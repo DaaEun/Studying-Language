@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Object Method</title>
+</head>
+<body>
+	<h1>객체의 valueOf() 메소드</h1>
+	
+	<script>
+		function func(n) {
+			this.number = n;
+		}
+
+		myFunc = new func(4);
+		document.write(myFunc + 5);		// (가)
+
+		func.prototype.valueOf = function() {	// (나)
+			return this.number;
+		}
+		document.write("<br><br>")
+		document.write(myFunc + 5);		// (다)
+	</script>
+	<!--
+		(가) 산술 연산을 위해 number 타입의 값을 기대하는 곳에 myFunc 객체가 사용된다.
+		따라서 내부적으로 해당 객체의 valueOf() 메소드를 호출한다.
+		하지만 이 객체의 valueOf() 메소드는 아직 정의되지 않았으므로, 해당 객체 자신을 반환한다.
+		따라서 산술 연산이 아닌 문자열 결합 연산이 수행된다.
+
+		(나) prototype 프로퍼티를 이용하여 valueOf() 메소드를 정의한다.
+		(다) 내부적으로 호출된 valueOf() 메소드가 해당 객체의 number 프로퍼티 값을 반환한다.
+		따라서 정상적으로 산술 연산이 수행된다.
+	-->
+</body>
+</html>

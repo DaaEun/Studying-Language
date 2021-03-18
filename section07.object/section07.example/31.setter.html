@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Object Method</title>
+</head>
+<body>
+	<h1>setter 메소드</h1>
+
+    <script>
+        var daeun = { age: 24 };
+
+        daeun.age = 20;
+        document.write(daeun.age + "<br>");	// 20
+
+        Object.defineProperty(daeun, "changeAge", { set: function(n) { this.age = this.age - n; } });
+        daeun.changeAge = 5;
+        document.write(daeun.age);			// 15
+    </script>
+</body>
+</html>
