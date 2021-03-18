@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<!--
+		# 노드로의 접근
+		1. getElementsByTagName() 메소드를 이용하는 방법
+		2. 노드 간의 관계를 이용하여 접근하는 방법
+
+
+		# getElementsByTagName() 메소드를 이용하는 방법
+		특정 태그 이름을 가지는 모든 요소를 노드 리스트의 형태로 반환한다.
+		따라서 이 메소드가 반환하는 노드 리스트를 이용하면 원하는 노드에 접근할 수 있다.
+
+		# 노드 간의 관계를 이용하여 접근하는 방법
+		1. parentNode : 부모 노드
+		2. childNodes : 자식 노드 리스트
+		3. firstChild : 첫 번째 자식 노드
+		4. lastChild : 마지막 자식 노드
+		5. nextSibling : 다음 형제 노드
+		6. previousSibling : 이전 형제 노드
+
+		# 노드에 대한 정보
+		1. nodeName
+		2. nodeValue
+		3. nodeType
+	-->
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Node Access</title>
+</head>
+<body>
+	<!-- 1. nodeName : 노드 고유의 이름을 저장하므로, 수정할 수 없는 읽기 전용 프로퍼티 -->
+	<h1>nodeName 프로퍼티</h1>
+	<p id="document"></p>
+	<p id="html"></p>
+	<script>
+		// HTML 문서의 모든 자식 노드 중에서 두 번째 노드의 이름을 선택함.
+		document.getElementById("document").innerHTML = document.childNodes[1].nodeName;			// HTML
+		
+		// html 노드의 모든 자식 노드 중에서 첫 번째 노드의 이름을 선택함.
+		document.getElementById("html").innerHTML = document.childNodes[1].childNodes[0].nodeName;	// HEAD
+	</script>
+
+	<!-- 2. nodeValue : 노드의 값을 저장 -->
+	<h1 id="heading">nodeValue 프로퍼티</h1>
+	<p id="text1">텍스트</p>
+	<p id="text2">텍스트</p>
+	<script>
+		// 아이디가 "heading"인 요소의 첫 번째 자식 노드의 노드값을 선택함.
+		var headingText = document.getElementById("heading").firstChild.nodeValue;
+		
+		document.getElementById("text1").innerHTML = headingText;
+		document.getElementById("text2").firstChild.nodeValue = headingText;
+	</script>
+
+	<!-- 3. nodeType : 노드 고유의 타입을 저장하므로, 수정할 수 없는 읽기 전용 프로퍼티 -->
+	<h1 id="heading">nodeType 프로퍼티</h1>
+	<p id="head"></p>
+	<p id="document"></p>
+	<script>
+		// 아이디가 "heading"인 요소의 첫 번째 자식 노드의 타입을 선택함.
+		var headingType = document.getElementById("heading").firstChild.nodeType;
+		
+		document.getElementById("head").innerHTML = headingType;			// 3
+		document.getElementById("document").innerHTML = document.nodeType;	// 9
+	</script>
+</body>
+</html>

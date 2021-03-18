@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<!--
+		# 대화 상자(dialog box)
+		1. alert()
+		2. confirm()
+		3. prompt()
+	-->
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript BOM Dialog Box</title>
+</head>
+<body>
+</body>
+	<!-- 1. alert() -->
+	<h1>alert() 메소드</h1>
+	<button onclick="alertDialogBox()">alert 대화 상자</button>
+	<script>
+		function alertDialogBox() {
+			alert("확인을 누를 때까지 다른 작업을 할 수 없어요!");
+		}
+	</script>
+
+	<!-- 2. confirm() : 사용자에게 간단한 메시지를 보여주고, 사용자가 확인이나 취소를 누르면 그 결과를 불리언 값으로 반환 -->
+	<h1>confirm() 메소드</h1>
+	<button onclick="confirmDialogBox()">confirm 대화 상자</button>
+	<p id="text"></p>
+	<script>
+		function confirmDialogBox() {
+			var str;
+
+			if (confirm("확인이나 취소를 눌러주세요!") == true) {
+				str = "당신은 확인을 눌렀습니다!";
+			} else {
+				str = "당신은 취소을 눌렀습니다!";
+			}
+			document.getElementById("text").innerHTML = str;
+		}
+	</script>
+
+	<!-- 3. prompt() : 사용자에게 간단한 메시지를 보여주고, 사용자가 입력한 문자열을 반환 -->
+	<h1>prompt() 메소드</h1>
+	<button onclick="promptDialogBox()">prompt 대화 상자</button>
+	<p id="text"></p>
+	<script>
+		function promptDialogBox() {
+			var inputStr = prompt("당신의 이름을 입력해 주세요 : ", "홍길동");
+
+			if (inputStr != null) {
+				document.getElementById("text").innerHTML = "당신의 이름은 " + inputStr + "입니다.";
+			}
+		}
+	</script>
+
+	<!--
+		이외에도 showModalDialog() 메소드를 이용하면, 좀 더 복잡한 대화 상자를 만들 수 있다.
+
+		하지만 이러한 대화 상자는 모두 사용자의 응답이 있을 때까지 브라우저의 실행을 강제로 중단시킨다.
+		따라서 사용자 측면에서 보면 불편할 수도 있으므로, 대화 상자는 될 수 있으면 자주 사용하지 않는 것이 좋다.
+	-->
+</html>

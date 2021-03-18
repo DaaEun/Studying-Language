@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<!--
+		# 노드의 값 변경
+		- nodeValue 프로퍼티를 사용하면 특정 노드의 값을 변경할 수 있다.
+		또한, setAttribute() 메소드는 속성 노드의 속성값을 변경할 수 있게 해준다.
+
+		# 요소 노드의 텍스트
+		- 요소 노드는 자신이 직접 텍스트값을 가지지는 않는다.
+		- 요소 노드의 텍스트는 요소 노드의 자식 노드인 텍스트 노드(text node)에 저장된다. 
+		- 요소 노드의 텍스트 값을 확인하거나 변경하고자 할 때는 요소 노드에 포함된 텍스트 노드에 접근해야 한다.
+	-->
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Node Handle</title>
+	<style>
+		.para {
+	    	background-color : orange;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- # 텍스트 노드의 값 변경 -->
+	<h1>텍스트 노드의 값 변경</h1>
+	<p id="text">이 텍스트를 변경하고 싶어요!</p>
+	<button onclick="changeText()">텍스트 변경!</button>
+	<script>
+		var para = document.getElementById("text");		// 아이디가 "text"인 요소를 선택함.
+		function changeText() {
+			para.firstChild.nodeValue = "텍스트 변경 완료!";
+		}
+	</script>
+
+	<!-- # 속성 노드의 값 변경 -->
+	<h1>속성 노드의 값 변경</h1>
+	<p>속성 노드의 값을 변경하고 싶어요!</p>
+	<button onclick="changeAttribute()">속성 변경!</button>
+	<script>
+		var para;
+		function changeAttribute() {
+			// 모든 <p> 요소중에서 첫 번째 요소에 클래스 속성값으로 "para"를 설정함.
+			document.getElementsByTagName("p")[1].setAttribute("class", "para");
+			// 클래스가 설정되면 해당 클래스에 설정되어 있던 스타일이 자동으로 적용됨.
+		}
+	</script>
+
+	<!--
+		# 요소 노드의 교체
+
+		교체할노드 = 부모노드.replaceChild(새로운자식노드, 기존자식노드);
+
+		1. 새로운 자식 노드 : 자식 노드 리스트에 새롭게 추가할 요소 노드 전달
+		2. 기존 자식 노드 : 자식 노드 리스트에서 제거할 요소 노드 전달
+	-->
+	<h1>요소 노드의 교체</h1>
+	<div id="parent">
+		<p id="first">첫 번째 요소입니다.</p>
+		<p>두 번째 요소입니다.</p>
+	</div>
+	<p id="third">세 번째 요소입니다.</p>
+	<button onclick="changeNode()">요소 노드 교체!</button>
+	<script>
+		var parent = document.getElementById("parent");	// 부모 노드를 선택함.
+		var first = document.getElementById("first");
+		var third = document.getElementById("third");
+		function changeNode() {
+			parent.replaceChild(third, first);			// first 요소를 삭제하고, 그 대신 third 요소를 삽입함.
+		}
+	</script>
+
+	<!--
+		# 텍스트 노드의 데이터 교체
+
+		텍스트노드.replaceData(오프셋, 교체할문자수, 새로운데이터);
+
+		1. 오프셋(offset) : 오프셋 값은 0부터 시작하며, 기존 텍스트 데이터의 몇 번째 문자부터 교체할지 전달
+		2. 교체할 문자 수 : 기존 텍스트 노드의 데이터로부터 교체할 총 문자 수 전달
+		3. 새로운 데이터 : 새로이 삽입할 텍스트 데이터 전달
+	-->
+	<h1>텍스트 노드의 데이터 교체</h1>
+	<p id="text2">지금 시간은 오후 3시입니다.</p>
+	<button onclick="changeText()">텍스트 교체!</button>
+	<script>
+		var text = document.getElementById("text2").firstChild;	// 아이디가 "text"인 요소의 텍스트 노드를 선택함.
+		function changeText() {
+			text.replaceData(7, 4, "저녁 7");	// 텍스트 노드의 7번째 문자부터 4개의 문자를 "저녁 7"로 교체함.
+		}
+	</script>
+</body>
+</html>

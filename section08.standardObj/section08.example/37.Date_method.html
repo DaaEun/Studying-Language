@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Date Method</title>
+</head>
+<body>
+	<!-- # Date.now() : 1970년 1월 1일 0시 0분 0초부터 현재까지의 시간을 밀리초(millisecond) 단위의 정수로 반환 -->
+	<h1>Date.now() 메소드</h1>
+	<script>
+		var nowMiliSec = Date.now();
+		document.write(nowMiliSec + "<br>");			// 1970년 1월 1일 00:00:00부터 현재까지의 밀리초
+		document.write(new Date(nowMiliSec) + "<br>");	// new Date()와 같은 결과를 반환함.
+		document.write(new Date());
+	</script>
+
+	<!--
+		# Date.prototype getter 메소드
+		- 모든 Date 인스턴스는 Date.prototype으로부터 메소드와 프로퍼티를 상속받는다.
+		- Date.prototype getter 메소드는 날짜와 관련된 정보를 받아오기 위한다.
+		
+		1. getFullYear()
+		2. getDate()
+		3. getDay()
+		4. getTime()
+	-->
+
+	<!-- 1. getFullYear() : 현재 연도를 4비트의 숫자(YYYY)로 반환 -->
+	<h1>getFullYear() 메소드</h1>
+	<script>
+		var date = new Date();
+		document.write("올해는 " + date.getFullYear() + "년입니다.");	// 현재 연도를 반환함.
+	</script>
+
+	<!-- 2. getDate() : 현재 날짜에 해당하는 숫자를 반환 -->
+	<h1>getDate() 메소드</h1>
+	<script>
+		document.write("오늘은 " + date.getMonth() + "월 " + date.getDate() + "일입니다.");	
+		// 현재 날짜를 반환함.
+	</script>
+
+	<!-- 3. getDay() : 현재 요일에 해당하는 숫자를 반환 -->
+	<h1>getDay() 메소드</h1>
+
+	<script>
+		var day;
+		switch (date.getDay()) {	// 현재 요일을 반환함.
+			case 0:
+				day = "일";
+				break;
+			case 1:
+				day = "월";
+				break;
+			case 2:
+				day = "화";
+				break;
+			case 3:
+				day = "수";
+				break;
+			case 4:
+				day = "목";
+				break;
+			case 5:
+				day = "금";
+				break;
+			case 6:
+				day = "토";
+				break;
+		}
+		document.write("오늘은 " + day + "요일입니다.");
+	</script>
+	<h1>getDay() 메소드2</h1>
+	<script>
+		var days = ["일", "월", "화", "수", "목", "금", "토"];
+		document.write("오늘은 " + days[date.getDay()] + "요일입니다.");
+	</script>
+
+	<!-- 4. getTime() :  1970년 1월 1일 0시 0분 0초부터 현재까지의 시간을 밀리초 단위로 환산한 값을 숫자로 반환 -->
+	<h1>getTime() 메소드</h1>
+	<script>
+		var date = new Date();
+		var period = date.getTime() / 86400000 // 하루는 86,400,000 밀리초로 계산됨.
+		document.write("1970년 1월 1일부터 오늘까지 " + period.toFixed() + "일이 지났습니다."); // 소수 부분은 생략함.
+	</script>
+
+
+	<!--
+		# Date.prototype setter 메소드
+
+		1. setFullYear()
+		2. setDate()
+	-->
+
+	<!-- 1. setFullYear() : Date 객체의 값을 특정 날짜로 설정 -->
+	<h1>setFullYear() 메소드</h1>
+	<script>
+		var date = new Date();
+		date.setFullYear(1982, 1, 19);	// 자바스크립트에서 2월은 1임.
+		document.write(date.getFullYear() + "<br>");	// 1982
+		document.write(date.getMonth() + "<br>");		// 1
+		document.write(date.getDate() + "<br>");		// 19
+		document.write(date);
+	</script>
+
+	<!-- 2. setDate() -->
+	<h1>setDate() 메소드</h1>
+	<script>
+		var date = new Date();
+		date.setDate(10);				// Date 객체의 일자 값을 10일로 설정함.
+		document.write(date + "<br>");
+		date.setDate(40);				// 40일을 설정하면, 초과되는 일수만큼 다음달로 넘어감.
+		document.write(date);
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<!--
+		# History 객체
+		- 브라우저의 히스토리 정보를 문서와 문서 상태 목록으로 저장하는 객체이다.
+		- 사용자의 개인 정보를 보호하기 위해 이 객체에 접근하는 방법을 일부 제한하고 있다.
+	-->
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript BOM History Object</title>
+</head>
+<body>
+
+	<!-- # 히스토리 목록의 개수 -->
+	<h1>히스토리 목록의 갯수</h1>
+	<p>아래 버튼을 눌러 새로운 문서를 연 후에 브라우저의 뒤로 가기 버튼을 눌러보세요!</p>
+	<button onclick="openDocument()">새로운 문서 열기</button>
+	<p id="text"></p>
+	<script>
+		function openDocument() {
+			location.assign("http://www.tcpschool.com/javascript/js_bom_history");
+		}
+		document.getElementById("text").innerHTML = "현재 브라우저의 히스토리 목록의 갯수는 " + history.length + "개 입니다.";
+	</script>
+
+	<!-- 
+		# 스토리 목록 접근하기
+		- 브라우저의 뒤로 가기와 앞으로 가기 버튼과 같은 동작을 하는 back()과 forward() 메소드를 가진다.
+		- go() 메소드를 이용하면 인수로 전달받는 정수만큼 히스토리 목록 사이를 이동할 수도 있다.
+	-->
+</body>
+</html>
