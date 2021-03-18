@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Number Method</title>
+</head>
+<body>
+	<!-- 1. Number.parseFloat() : 문자열을 파싱하여, 문자열에 포함된 숫자 부분을 실수 형태로 반환 -->
+	<h1>Number.parseFloat() 메소드</h1>
+	
+	<script>
+		document.write(Number.parseFloat("12") + "<br>");			// 12
+		document.write(Number.parseFloat("12.34") + "<br>");		// 12.34
+		document.write(Number.parseFloat("12문자열") + "<br>");		// 12
+		document.write(Number.parseFloat("12 34 56") + "<br>");		// 12
+		document.write(Number.parseFloat("문자열 56"));				// NaN
+	</script>
+</body>
+</html>

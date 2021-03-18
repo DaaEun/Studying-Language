@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Number Method</title>
+</head>
+<body>
+	<!-- 5. Number.isInteger() : 전달된 값이 정수인지 아닌지를 검사 -->
+	<h1>Number.isInteger() 메소드</h1>
+	
+	<script>
+		document.write(Number.isInteger(0) + "<br>");			// true
+		document.write(Number.isInteger(-100) + "<br><br>");	// true
+
+		document.write(Number.isInteger(0.1) + "<br>");			// false
+		document.write(Number.isInteger("문자열") + "<br>");	// false
+		document.write(Number.isInteger(Infinity) + "<br>");	// false
+		document.write(Number.isInteger(true));					// false
+	</script>
+</body>
+</html>

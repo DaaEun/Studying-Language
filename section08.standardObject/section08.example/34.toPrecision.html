@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Number Method</title>
+</head>
+<body>
+	<!-- 3. Number.prototype.toPrecision() : Number 인스턴스의 가수와 소수 부분의 합친 자릿수를 전달받은 값으로 고정한 후, 그 값을 문자열로 반환 -->
+	<h1>toPrecision() 메소드</h1>
+
+	<script>
+		var num = 3.14159265; // Number 인스턴스를 생성함.
+
+		document.write(num.toPrecision() + "<br>");			// 3.14159265
+		document.write(num.toPrecision(2) + "<br>");		// 3.1
+		document.write(num.toPrecision(4) + "<br>");		// 3.142
+		document.write(3.14159265.toPrecision(6));			// 3.14159
+	</script>
+</body>
+</html>

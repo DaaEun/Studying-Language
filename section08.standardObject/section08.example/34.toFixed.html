@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Number Method</title>
+</head>
+<body>
+	<!-- 2. Number.prototype.toFixed() : Number 인스턴스의 소수 부분 자릿수를 전달받은 값으로 고정한 후, 그 값을 문자열로 반환 -->
+	<h1>toFixed() 메소드</h1>
+
+	<script>
+		var num = 3.14159265; // Number 인스턴스를 생성함.
+
+		document.write(num.toFixed() + "<br>");			// 3
+		document.write(num.toFixed(2) + "<br>");		// 3.14
+		document.write(num.toFixed(4) + "<br>");		// 3.1416
+		document.write(3.14159265.toFixed(6));			// 3.141593
+	</script>
+</body>
+</html>

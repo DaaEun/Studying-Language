@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Number Method</title>
+</head>
+<body>
+	<!-- 4. Number.prototype.toString() : Number 인스턴스의 값을 문자열로 반환 -->
+	<h1>toString() 메소드</h1>
+	
+	<script>
+		var num = 255; // Number 인스턴스를 생성함.
+
+		document.write(num.toString() + "<br>");		// 255
+		document.write((255).toString() + "<br>");		// 255
+		document.write((3.14).toString() + "<br>");		// 3.14
+		document.write(num.toString(2) + "<br>");		// 11111111
+		document.write((100).toString(16) + "<br>");	// 64
+		document.write((-0xff).toString(2));			// -11111111
+	</script>
+</body>
+</html>

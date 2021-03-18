@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Number Method</title>
+</head>
+<body>
+	<!-- 6. Number.isSafeInteger() : 전달된 값이 안전한 정수(safe integer)인지 아닌지를 검사 -->
+	<h1>Number.isSafeInteger() 메소드</h1>
+
+	<script>
+		document.write(Number.isSafeInteger(10) + "<br>");						// true
+		document.write(Number.isSafeInteger(Math.pow(2, 53) - 1) + "<br><br>");	// true
+
+		document.write(Number.isSafeInteger(Math.pow(2, 53)) + "<br>");			// false
+		document.write(Number.isSafeInteger(Infinity) + "<br>");				// false
+		document.write(Number.isSafeInteger(NaN) + "<br>");						// false
+		document.write(Number.isSafeInteger(3.14));								// false
+	</script>
+</body>
+</html>

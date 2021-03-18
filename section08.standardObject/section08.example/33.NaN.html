@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Number Object</title>
+</head>
+<body>
+	<h1>NaN(Not A Number)</h1>
+
+	<script>
+		var x = 100 - "10";			// "10"은 자동으로 숫자로 변환되어 계산됨.
+		var y = 100 - "문자열";		// "문자열"은 숫자로 변환할 수 없기 때문에 NaN을 반환함.
+		var z = 0 / 0;				// 0을 0으로 나눌 수 없기 때문에 NaN을 반환함.
+
+		document.write(x + "<br>");	// 90
+		document.write(y + "<br>");	// NaN
+		document.write(z);			// NaN
+	</script>
+</body>
+</html>

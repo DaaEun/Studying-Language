@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Number Object</title>
+</head>
+<body>
+	<h1>null, undefined, NaN, Infinity</h1>
+
+	<script>
+		document.write((typeof null) + "<br>");			// object
+		document.write((typeof undefined) + "<br>");	// undefined
+		document.write((typeof NaN) + "<br>");			// ​​​​​​​number
+		document.write((typeof Infinity) + "<br><br>");	// ​​​​​​​number
+
+		document.write(Boolean(null) + "<br>");			// ​​​​​​​false
+		document.write(Boolean(undefined) + "<br>");	// ​​​​​​​false
+		document.write(Boolean(NaN) + "<br>");			// ​​​​​​​false
+		document.write(Boolean(Infinity) + "<br><br>");	// true
+
+		document.write(Number(null) + "<br>");			// ​​​​​​​0
+		document.write(Number(undefined) + "<br>");		// ​​​​​​​NaN
+		document.write(Number(NaN) + "<br>");			// ​​​​​​​NaN
+		document.write(Number(Infinity) + "<br><br>");	// ​​​​​​​Infinity
+
+		document.write(String(null) + "<br>");			// ​​​​​​​null
+		document.write(String(undefined) + "<br>");		// undefined
+		document.write(String(NaN) + "<br>");			// NaN
+		document.write(String(Infinity));				// Infinity
+	</script>
+</body>
+</html>
