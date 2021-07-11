@@ -7,5 +7,5 @@ int main(void) {
 	int len = sizeof(grade) / sizeof(grade[0]);	// 배열의 길이를 구하는 공식
 
 	cout << "배열 grade의 길이는 " << len << "입니다.";
-	return 0;
+	return 0;  
 }
