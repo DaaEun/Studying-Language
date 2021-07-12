@@ -1,2 +1,6 @@
 .vscode
 .exe
+
+.vcxproj
+.vcxproj.filters
+.vcxproj.user
