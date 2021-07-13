@@ -1,3 +1,9 @@
+.vscode
+.exe
+
+*.vs
+Debug
+
 *.sln
 *.vcxproj
 *.vcxproj.filters
