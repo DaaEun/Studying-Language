@@ -30,5 +30,6 @@ int main(void) {
 	delete ptr_int;
 	delete ptr_double;
 	// new 연산자를 통해 생성한 메모리가 아닌 변수를 선언하여 생성한 메모리는 delete 연산자로 해제할 수 없다.
+	
 	return 0;
 }
