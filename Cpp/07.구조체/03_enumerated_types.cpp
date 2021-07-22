@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 enum Weather {SUNNY = 0, CLOUD = 10, RAIN = 20, SNOW = 30};
 
  
