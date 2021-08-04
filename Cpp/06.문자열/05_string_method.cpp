@@ -28,6 +28,10 @@ int main(void) {
 	cout << "2. append() 메소드" << endl;
 	string str2, str3, str4;
 
+	//1. 문자열.append(추가할문자열)               
+	//2. 문자열.append(추가할문자열, 시작위치, 개수)
+	//3. 문자열.append(개수, 추가할문자)
+
 	str2.append("Let's go to a party!");
 	str3.append("Let's go to a party!", 4, 7);
 	str4.append(4, 'X');
@@ -79,6 +83,7 @@ int main(void) {
 
 	string::size_type index = str7.find(str8);
 	if (index != string::npos) {
+		//문자열.replace(대체할문자열의시작위치, 대체할문자열의길이, 새로운문자열)
 		str7.replace(index, str8.length(), str9);
 	}
 	cout << str7 << endl;
