@@ -1,26 +1,43 @@
+/*
+	# µ¿Àû ¹ÙÀÎµù(dynamic binding)
+	ÇÔ¼ö¸¦ È£ÃâÇÒ ¶§, ¾î´À ºí·Ï¿¡ ÀÖ´Â ÇÔ¼ö¸¦ È£ÃâÇÏ°í, ÇØ´ç ÇÔ¼ö°¡ ÀúÀåµÈ Á¤È®ÇÑ ¸Þ¸ð¸® À§Ä¡µµ ¾Ë¾Æ¾ß ÇÑ´Ù.
+	ÀÌÃ³·³ ÇÔ¼ö¸¦ È£ÃâÇÏ´Â ÄÚµå¿¡¼­ ¾î´À ºí·Ï¿¡ ÀÖ´Â ÇÔ¼ö¸¦ ½ÇÇàÇÏ¶ó´Â ÀÇ¹Ì·Î ¹ÙÀÎµù(binding)ÀÌ¶ó ÇÑ´Ù.
+	ÇÏÁö¸¸ ÇÔ¼ö°¡ ¿À¹ö·ÎµùµÉ ¼ö ÀÖÀ¸¹Ç·Î ÀÌ ÀÛ¾÷ÀÌ Á¶±Ý º¹ÀâÇØÁø´Ù.
+
+	´ëºÎºÐ ÇÔ¼ö¸¦ È£ÃâÇÏ´Â ÄÚµå´Â ÄÄÆÄÀÏ Å¸ÀÓ¿¡ °íÁ¤µÈ ¸Þ¸ð¸® ÁÖ¼Ò·Î º¯È¯µÈ´Ù.
+	ÀÌ°ÍÀ» Á¤Àû ¹ÙÀÎµù(static binding) ¶Ç´Â ÃÊ±â ¹ÙÀÎµù(early binding)ÀÌ¶ó ÇÑ´Ù.
+	C++¿¡¼­ °¡»ó ÇÔ¼ö°¡ ¾Æ´Ñ ¸â¹ö ÇÔ¼ö´Â ¸ðµÎ ÀÌ·¯ÇÑ Á¤Àû ¹ÙÀÎµùÀÌ´Ù.
+
+	ÇÏÁö¸¸ °¡»ó ÇÔ¼öÀÇ È£ÃâÀº ÄÄÆÄÀÏ·¯°¡ ¾î¶² ÇÔ¼ö¸¦ È£ÃâÇØ¾ß ÇÏ´ÂÁö ¹Ì¸® ¾Ë ¼ö ¾ø´Ù.
+	¿Ö³ÄÇÏ¸é, °¡»ó ÇÔ¼ö´Â ÇÁ·Î±×·¥ÀÌ ½ÇÇàµÉ ¶§ °´Ã¼¸¦ °áÁ¤ÇÏ¹Ç·Î, ÄÄÆÄÀÏ Å¸ÀÓ¿¡ ÇØ´ç °´Ã¼¸¦ Æ¯Á¤ÇÒ ¼ö ¾ø±â ¶§¹®ÀÌ´Ù.
+	µû¶ó¼­ °¡»ó ÇÔ¼öÀÇ °æ¿ì, ·± Å¸ÀÓ¿¡ ¿Ã¹Ù¸¥ ÇÔ¼ö°¡ ½ÇÇàµÉ ¼ö ÀÖµµ·Ï ÇØ¾ß ÇÑ´Ù.
+	ÀÌ°ÍÀ» µ¿Àû ¹ÙÀÎµù(dynamic binding) ¶Ç´Â Áö¿¬ ¹ÙÀÎµù(late binding)ÀÌ¶ó°í ÇÕ´Ï´Ù.
+
+	ÇÏÁö¸¸ °¡»ó ÇÔ¼öµµ °áÇÕÇÏ´Â Å¸ÀÔÀÌ ºÐ¸íÇÒ ¶§¿¡´Â ÀÏ¹Ý ÇÔ¼ö¿Í °°ÀÌ Á¤Àû ¹ÙÀÎµùÀ» ÇÑ´Ù.
+	±âÃÊ Å¬·¡½º Å¸ÀÔÀÇ Æ÷ÀÎÅÍ³ª ÂüÁ¶¸¦ ÅëÇÏ¿© È£ÃâµÉ ¶§¸¸ µ¿Àû ¹ÙÀÎµùÀ» ÇÑ´Ù.
+*/
 #include <iostream>
 using namespace std;
 
-class A
-{
+class A {
 public:
-	virtual void Print() { cout << "A í´ëž˜ìŠ¤ì˜ Print() í•¨ìˆ˜" << endl; }
+	virtual void Print() { cout << "A Å¬·¡½º Print()" << endl; }
 };
 
-class B : public A
-{
-	virtual void Print() { cout << "B í´ëž˜ìŠ¤ì˜ Print() í•¨ìˆ˜" << endl; }
+class B : public A {
+	virtual void Print() { cout << "B Å¬·¡½º Print()" << endl; }
 };
 
-int main(void)
-{
+int main(void) {
+
 	A* ptr;
-	A obj_a;
-	B obj_b;
-	
-	ptr = &obj_a;
+	A objA;
+	B objB;
+
+	ptr = &objA;
 	ptr->Print();
-	ptr = &obj_b;
+	ptr = &objB;
 	ptr->Print();
+
 	return 0;
 }
