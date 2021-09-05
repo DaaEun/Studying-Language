@@ -8,30 +8,30 @@ private:
 	string name_;
 	int age_;
 public:
-	Person(const string& name, int age);	// ±âÃÊ Å¬·¡½º »ı¼ºÀÚÀÇ ¼±¾ğ 
-	~Person() { cout << "¼Ò¸êÀÚ°¡ È£ÃâµÇ¾ú½À´Ï´Ù." << endl; }
+	Person(const string& name, int age);	// ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	~Person() { cout << "ï¿½Ò¸ï¿½ï¿½Ú°ï¿½ È£ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl; }
 	void ShowPersonInfo();
 };
 
 int main(void)
 {
-	shared_ptr<Person> hong = make_shared<Person>("±æµ¿", 29);
-	cout << "ÇöÀç ¼ÒÀ¯ÀÚ ¼ö : " << hong.use_count() << endl;	// 1
+	shared_ptr<Person> hong = make_shared<Person>("ï¿½æµ¿", 29);
+	cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ : " << hong.use_count() << endl;	// 1
 	auto han = hong;
-	cout << "ÇöÀç ¼ÒÀ¯ÀÚ ¼ö : " << hong.use_count() << endl;	// 2
-	han.reset();		// shared_ptrÀÎ hanÀ» ÇØÁ¦ÇÔ. 
-	cout << "ÇöÀç ¼ÒÀ¯ÀÚ ¼ö : " << hong.use_count() << endl;	// 1
+	cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ : " << hong.use_count() << endl;	// 2
+	han.reset();		 
+	cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ : " << hong.use_count() << endl;	// 1
 	return 0;
 }
 
-Person::Person(const string& name, int age)	// ±âÃÊ Å¬·¡½º »ı¼ºÀÚÀÇ Á¤ÀÇ 
+Person::Person(const string& name, int age)	
 {
 	name_ = name;
 	age_ = age;
-	cout << "»ı¼ºÀÚ°¡ È£ÃâµÇ¾ú½À´Ï´Ù." << endl;
+	cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ È£ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl;
 }
 
 void Person::ShowPersonInfo()
 {
-	cout << name_ << "ÀÇ ³ªÀÌ´Â " << age_ << "»ìÀÔ´Ï´Ù." << endl;
+	cout << name_ << "ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ " << age_ << "ï¿½ï¿½ï¿½Ô´Ï´ï¿½." << endl;
 }
