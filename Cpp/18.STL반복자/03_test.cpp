@@ -1,22 +1,47 @@
 #include <iostream>
-#include <iterator>
-#include <list>
+
+#include <fstream>
+
+#include <string>
+
 using namespace std;
 
-int main(void)
+ 
+
+int main()
+
 {
-	list<int> ls = {10, 20, 30};
-	list<int>::iterator iter;
-	list<int>::const_iterator citer;
-	
-	iter = ls.begin();
-	*iter = 100;
-	citer = ls.end();
-	*citer = 300;	// 상수 반복자이므로 값의 변경은 불가능함. 
-		
-	for(citer = ls.begin(); citer != ls.end(); citer++)
-	{
-		cout << *citer << " ";
-	}
-	return 0;
+
+    ifstream ifs;
+
+    string str;
+
+ 
+
+    ifs.open("example.txt"); // "C++ 프로그래밍"
+
+    if(!ifs.is_open())
+
+    {
+
+        cout << "파일을 열 수가 없습니다!" << endl;
+
+        exit(1);
+
+    }
+
+    else
+
+    {
+
+        cout << "파일을 성공적으로 열었습니다!" << endl;
+
+        getline(ifs, str);
+
+        cout << str << endl;
+
+        ifs.close();
+
+    }
+
 }
