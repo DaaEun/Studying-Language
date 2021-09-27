@@ -7,13 +7,11 @@
 	STL은 알고리즘을 일반화한 표현을 제공하여, 데이터의 추상화와 코드를 재활용할 수 있게 한다.
 
 
-
 	# STL의 구성 요소
 
 	1. 반복자(iterator)
 	2. 컨테이너(container)
 	3. 알고리즘(algorithm)
-
 
 
 	# 반복자(iterator)

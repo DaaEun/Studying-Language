@@ -35,7 +35,7 @@ int main(void) {
 	return 0;
 }
 
-Person::Person(const string& name, int age) {// 기초 클래스 생성자의 정의
+Person::Person(const string& name, int age) {	// 기초 클래스 생성자의 정의
 	name_ = name;
 	age_ = age;
 	cout << "생성자 호출" << endl;
