@@ -26,3 +26,10 @@
 	2. 반복자 사이의 대입 연산, 비교 연산이 가능해야 한다.	-> 대입, 관계 연산자 정의
 	3. 가리키는 요소의 주변 요소로 이동할 수 있어야 한다.	-> 증가 연산자(++) 정의
 */
+list<int> ls = {10};
+
+ls.push_back(20); // back_insert_iterator를 사용함.
+
+ls.push_front(30); // front_insert_iterator를 사용함.
+
+copy(ls.begin(), ls.end(), ostream_iterator<int>(cout, " "));
