@@ -12,7 +12,7 @@ int main(void)
 	iter = ls.begin();
 	*iter = 100;
 	citer = ls.end();
-	// *citer = 300;	// 상수 반복자이므로 값의 변경은 불가능함. 
+	*citer = 300;	// 상수 반복자이므로 값의 변경은 불가능함. 
 		
 	for(citer = ls.begin(); citer != ls.end(); citer++)
 	{
