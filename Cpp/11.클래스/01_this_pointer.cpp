@@ -21,6 +21,7 @@ class Book {
 private:
 	int current_page_;
 	void set_persent();
+	
 public:
 	Book(const string& title, int total_page);
 	string title_;
