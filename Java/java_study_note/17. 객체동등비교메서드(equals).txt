@@ -1,0 +1,17 @@
+* 참조 타입 String과 객체 동등 비교 메서드 equals()
+
+- 자바는 문자열이 동일하다면 String 객체를 공유하도록 되어있습니다.
+그래서 단순히 문자열을 String 변수에 할당한다면 같은 주소값을 갖게 됩니다.
+
+ex) String str1 = "Hello";
+      String str2 = "Hello";
+   --> str1 == str2 -> true
+
+
+- 그러나 new키워드를 사용해서 String객체를 직접 heap영역에 생성한다면 문자열의 내용이 같더라도 다른 주소값을 가지게 되므로 동등, 비동등 연산자(==, !=)의 결과가 false로 나오게 됩니다.
+
+ex) String str3 = new String("Hello");
+      String str4 = new String("Hello");
+    --> str3 == str4 -> false
+
+- 그래서 동일 String객체이든 다른 String 객체이든 상관없이 문자열의 내용 값 그자체를 비교할 때는 equals() 메서드를 사용해야 합니다.

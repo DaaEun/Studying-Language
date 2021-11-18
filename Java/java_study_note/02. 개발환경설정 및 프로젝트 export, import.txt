@@ -1,0 +1,52 @@
+* 개발 환경 설정
+
+1. JDK 설치 (java.sun.com)
+- 환경변수 설정
+내 컴퓨터 우클릭 -> 속성 -> 고급 시스템 설정 -> 고급 탭 -> 환경변수 설정-> 시스템 변수에 추가 -> 변수이름 JAVA_HOME, 변수 값 JDK가 설치된 디렉토리 입력 -> 시스템 변수 안에 Path에 -> %JAVA_HOME%\bin 추가
+
+2. 개발도구 eclipse 설치 (eclipse.org)
+
+eclipse IDE - window - preference - encoding 검색 - workspace - other - UTF-8	//한글 호환 가능
+
+
+* java 클래스 만들기
+File - new - new project- name: Day01_daeun
+Day01_daeun - JRE System Library(제공되는 라이브러리들)랑 src(제작한 소스들 저장)
+src - new - class - name 쓰기 - public static~과 Inherited~ 체크 - finish
+// class 이름 오타시, 클래스 누르고, F2누르면 이름 수정가능
+
+
+
+* 컴파일 및 실행
+
+컴파일 명령어: javac HelloWorld.java
+실행 명령어: java HelloWorld
+
+
+
+
+* 프로젝트(eclipse 파일) export/import 방법
+
+1. Export
+- File	// 프로젝트 우클릭도 가능
+- Export
+- General-Archive File //더블 클릭 or Next
+- Day02_daeun 클릭
+- Browse 	//파일을 저장할 곳 지정
+- finish
+
+
+2. 프로젝트 지우기 
+- 파일선택
+- Delete
+- Delete project~~ 체크!! 
+- OK
+
+
+3. Import
+- File
+- Import
+- General-Existing Projects into Workspace //더블 클릭 or Next
+- Select archive file 
+- 압축파일 로드
+

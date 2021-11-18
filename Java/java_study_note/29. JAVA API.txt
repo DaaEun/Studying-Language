@@ -1,0 +1,15 @@
+* JAVA API(Application Programming Interface)
+
+- API는 라이브러리라고 부르며 프로그램 개발에 자주 사용되는 클래스 및 인터페이스의 
+  모음을 말합니다.
+
+- 자바 표준 API 문서 주소: https://docs.oracle.com/javase/8/docs/api
+
+
+
+
+- JAVA API DOCUMENT
+--> https://docs.oracle.com/javase/8/docs/api
+
+
+

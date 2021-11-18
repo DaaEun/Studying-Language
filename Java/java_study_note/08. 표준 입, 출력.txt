@@ -1,0 +1,40 @@
+* 자바 표준 입/출력(IO: Input/Output)
+
+- IO란 입력과 출력을 뜻한다.
+
+- Input:
+1. 파일의 데이터를 읽는다. (loading)
+2. 키보드의 입력데이터를 읽는다.
+3. 네트워크상의 데이터를 읽는다.
+
+- Output
+1. 파일에 데이터를 쓴다.(save)
+2. 모니터에 데이터를 쓴다.(모니터에 데이터를 출력한다.)
+3. 네트워크상에 데이터를 쓴다.(파일 전송)
+
+- C언어에서는 문자열을 출력할 때 printf() 함수를 이용하고, 입력받을 때 scanf() 함수를 이용한다.
+
+- 자바에서 데이터를 출력하는 명령은 System.out이고, 데이터를 입력받을 때는 System.in을 이용한다.
+
+- sysout 입력 후 ctrl+space를 누르면 System.out.println(); 생성된다.
+
+- 데이터를 입력받을 때는 표준 JAVA API인 Scanner클래스를 사용하며, 이 Scanner 클래스는 다양한 타입의 입력 값들을 읽어들이기 위한 메서드들을 제공한다.
+
+
+
+
+* Scanner API 사용법
+
+1. 스캐너 객체 생성
+- 화면에 scanner 입력 후, ctrl + space bar 누르면, import java.util.Scanner; 자동생성 된다.
+ex) Scanner scan = new Scanner(System.in);
+
+2. 입력 받을 데이터 타입에 따른 메서드 호출.
+ex) scan.next(), scan.nextLine(), scan.nextInt(), scan.nextDouble() 등
+- next(): 공백을 포함하지 않는 문자열을 입력 받을 때
+- nextLine(): 공백을 포함한 문자열을 입력 받을 때
+- nextInt(): 정수를 입력 받을 때
+- nextDouble(): 실수를 입력 받을 때
+
+3. 스캐너 객체 종료.
+ex) scan.close();

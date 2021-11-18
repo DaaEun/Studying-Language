@@ -1,0 +1,37 @@
+FILE
+Export
+Java
+Runnable JAR file
+Launch configuration에서 코드 선택
+Export destination에서 Browse
+Finish
+
+
+
+
+JSmooth
+Skeleton
+Skeleton Selection에서 Console Wrapper
+
+
+
+
+Executable
+Executable Binary ...에서 위에서 만든 jar 불러오기
+확장자 jar을 exe로 바꿈.
+// Executable Icon은 사진 넣는것
+Current Directory에는 . 입력
+
+Appllication
+Embbeded jar settings
+Embbeded jar ...에서 위에서 만든 jar 불러오기
+Use an embbeded jar 체크
+Application Settings 
+Main class ...에서 Availalbe Classes 더블클릭, 원하는 클래스 클릭, Select
+
+상단에 톱니바퀴모양 
+.
+.
+.
+저장
+

@@ -8,3 +8,6 @@ Debug
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+
+*.metadata
+bin/

@@ -1,0 +1,27 @@
+* java.lang 패키지
+
+
+
+- java.lang 패키지는 자바 프로그램의 기본적인 클래스들을 담고 있는 패키지입니다. 
+  그렇기 때문에 java.lang 패키지에 있는 클래스와 인터페이스는 import 구문 없이 
+  사용할 수 있습니다.
+
+
+
+- java.lang 패키지 주요 클래스
+
+1. Object: 자바 클래스의 최상위 클래스
+
+2. System: 표준 입력장치(키보드)로부터 데이터를 입력받거나 표준 출력장치(모니터)로
+   출력하기 위해 사용
+
+3. Class: 클래스를 메모리에 로딩할 때 사용
+
+4. String: 문자열을 저장하고 문자열의 여러 가지 정보를 얻을 때 사용
+
+5. StringBuffer, StringBuilder: 문자열을 저장하고 내부 문자열을 조작할 때 사용
+
+6. Math: 수학 함수를 이용할 때 사용
+
+7. Wrapper(Byte, Short, Integer, Long, Float, Double, Boolean, Character)
+: 기본 데이터 타입의 객체를 만들 때 사용
