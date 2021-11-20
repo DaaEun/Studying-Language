@@ -14,3 +14,7 @@ SELECT productCode, name, buyPrice, quantityInStock, buyPrice * quantityInStock 
         ELSE 'D'
     END AS 재고등급        
 FROM s_products;
+
+/*
+CASE는 위의 WHEN부터 체크한다. break가 내포된 의미인 듯
+*/
