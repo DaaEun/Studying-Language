@@ -26,3 +26,44 @@ WHERE (shippedDate - orderDate) < 7
 GROUP BY status;
 
 -- 못 품.
+
+
+
+
+
+WITH temp AS (
+	SELECT status, COUNT(*) 주문수, shippedDate, orderDate
+    FROM orders
+    GROUP BY status
+    HAVING shippedDate - orderDate <= 7
+)
+SELECT status, 주문수
+FROM temp; 
+
+
+
+
+WITH temp AS (
+	SELECT status, shippedDate, orderDate
+    FROM orders
+    WHERE shippedDate - orderDate <= 7
+)
+SELECT status, COUNT(*) 주문수
+FROM temp
+GROUP BY status;
+
+
+
+
+SELECT status, COUNT(*) 주문수, shippedDate, orderDate
+FROM orders
+GROUP BY status;
+HAVING shippedDate - orderDate < 7;
+
+
+
+
+SELECT *
+FROM orders
+WHERE status = 'Cancelled' AND (shippedDate - orderDate) <= 7;
+-- 모르겠다@.@
