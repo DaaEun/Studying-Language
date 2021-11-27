@@ -12,3 +12,11 @@ SELECT orderNo, orderDate, shippedDate, requiredDate
 FROM orders
 WHERE requiredDate <= shippedDate -- 동일한 Date 포함하기
 ORDER BY orderDate;
+
+
+-- 강의에서 ~~
+SELECT orderNo, orderDate, shippedDate, requiredDate
+FROM orders
+WHERE DATEDIFF(shippedDate, requiredDate) >= 0 
+ORDER BY orderDate;
+-- 굳이 내장함수 필요없다.

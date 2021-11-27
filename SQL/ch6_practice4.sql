@@ -15,3 +15,4 @@ FROM employees
 WHERE (MONTH(SYSDATE()) = MONTH(birthDate) AND DAY(SYSDATE()) <= DAY(birthDate)) 
 	OR (MONTH(SYSDATE())+1 = MONTH(birthDate) AND DAY(SYSDATE()) > DAY(birthDate)) 
 ORDER BY birthDate;
+

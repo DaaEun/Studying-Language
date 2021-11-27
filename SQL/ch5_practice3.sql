@@ -21,3 +21,28 @@ SELECT *
 FROM temp
 WHERE 상품수 >= 15
 ORDER BY 상품수 DESC, 주문액합계 DESC;
+
+
+SELECT orderNo, COUNT(productCode) 상품수, SUM(priceEach*quantity) 주문액합계
+FROM orderdetails
+GROUP BY orderNo
+HAVING COUNT(productCode) >=15
+ORDER BY 2 DESC, 3 DESC;
+
+
+SELECT orderNo, COUNT(orderNo) 상품수, SUM(priceEach*quantity) 주문액합계
+FROM orderdetails
+GROUP BY orderNo
+HAVING COUNT(orderNo) >=15
+ORDER BY 상품수 DESC, 주문액합계 DESC;
+
+
+
+
+
+
+
+
+
+
+

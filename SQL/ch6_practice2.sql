@@ -6,8 +6,6 @@
 SELECT *
 FROM products;
 
-SELECT CAST(NOW() AS DATE);
-
 SELECT productCode, name, scale, CAST(SUBSTRING(scale, 3, 5) AS SIGNED)
 FROM products
 WHERE MAX(CAST(SUBSTRING(scale, 3, 5) AS SIGNED)) = CAST(SUBSTRING(scale, 3, 5) AS SIGNED)
@@ -27,5 +25,11 @@ ORDER BY scale DESC, name;
 -- 틀림
 
 
+-- 강의에서~~
 
+SELECT productCode, name, scale
+FROM products
+ORDER BY CAST(SUBSTRING(scale, LOCATE(':', scale) + 1) AS UNSIGNED) DESC, name; 
 
+-- 데이터타입이 STRING(VARCHAR)이므로 CAST 활용한다.
+-- SUBSTRING() 함수에서 length가 생략되면, position부터 문자열 끝까지 리턴한다.

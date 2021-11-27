@@ -14,3 +14,10 @@ WITH temp AS
 SELECT ROW_NUMBER() OVER (ORDER BY MSRP DESC) AS rowNo, productCode, name, MSRP, msrpRank 순위
 FROM temp
 WHERE msrpRank <= 25;
+
+
+-- 강의에서~~
+SELECT ROW_NUMBER() OVER (ORDER BY TRUNCATE(MSRP, 0) DESC, name) AS rowNo, 
+	productCode, name, MSRP, RANK() OVER (ORDER BY TRUNCATE(MSRP, 0) DESC) AS msrpRank
+FROM products
+LIMIT 25; -- 최종 답

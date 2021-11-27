@@ -49,3 +49,11 @@ WITH temp AS
 )
 SELECT ROW_NUMBER() OVER (ORDER BY MSRP DESC) AS rowNo, productCode, name, MSRP
 FROM temp; -- 이거 정답
+
+
+
+-- 강의에서~~
+SELECT ROW_NUMBER() OVER (ORDER BY TRUNCATE(MSRP, 0) DESC, name) AS rowNo, 
+productCode, name, TRUNCATE(MSRP, 0) MSRP
+FROM products
+LIMIT 25; -- 최종 답

@@ -20,3 +20,14 @@ SELECT CONCAT(firstName, ' ', lastName) 성명, email, REGEXP_SUBSTR(email, '[^@
     'com' 도메인명	-- 정규표현식 설명 한번더 설명 요청합니다.
 FROM employees
 ORDER BY 성명;
+
+
+
+-- 강의에서~~
+SELECT CONCAT(firstName, ' ', lastName) 성명, email, REGEXP_SUBSTR(email, '[^@]+') 아이디,
+	REGEXP_SUBSTR(REGEXP_SUBSTR(email, '[^@]+', 1, 2), '[^\\.]+') 회사명, 
+    REGEXP_SUBSTR(email, '[^\\.]+', 1, 2) 도메인명	
+FROM employees
+ORDER BY 1;
+-- REGEXP_SUBSTR(email, '[^@]+', 1, 2)
+-- email에서 1번째부터 [^@]+를 검사해서 두번째 나오는 것.

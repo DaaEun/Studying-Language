@@ -67,3 +67,29 @@ SELECT *
 FROM orders
 WHERE status = 'Cancelled' AND (shippedDate - orderDate) <= 7;
 -- 모르겠다@.@
+
+
+
+
+-- 강의에서~~
+
+SELECT status , COUNT(orderNo) 주문수
+FROM orders
+WHERE shippedDate <= orderDate + INTERVAL 7 DAY
+GROUP BY status; 
+-- 정답
+
+
+SELECT status, shippedDate, orderDate,shippedDate - orderDate AS diff
+FROM orders
+ORDER BY diff DESC;
+-- 2003-12-26	2003-10-22	204
+-- 200312026 - 20031022 이렇게 정수로 계산되어서 204 가 나오게 된다.
+
+SELECT status , COUNT(orderNo) 주문수
+FROM orders
+WHERE TIMESTAMPDIFF(DAY, orderDate, shippedDate) < 7 
+GROUP BY status; 
+-- 또 다른 정답
+-- TIMESTAMPDIFF(unit, begin, end) 함수
+-- 두 날짜형 값의 차이를 주어진 단위로 계산. (end – begin)

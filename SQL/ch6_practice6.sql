@@ -17,3 +17,12 @@ SELECT name, country,
 FROM customers
 WHERE country = 'Germany'
 ORDER BY name;
+
+
+
+-- 강의에서~~
+SELECT name, country, COALESCE(salesRepId, 1165) 담당직원
+FROM customers
+WHERE country = 'Germany'
+ORDER BY name;
+-- COALESCE() 함수 사용

@@ -11,3 +11,11 @@ SELECT productLine, AVG(buyPrice) '평균 구매단가', AVG(MSRP) '평균 권�
 FROM products
 GROUP BY productLine
 ORDER BY '평균 구매단가' DESC, '평균 권장소비자가' DESC;
+
+
+
+-- 강의에서~~
+SELECT productLine, AVG(buyPrice) '평균 구매단가', AVG(MSRP) '평균 권장소비자가'
+FROM products
+GROUP BY productLine
+ORDER BY 2 DESC, 3 DESC;
