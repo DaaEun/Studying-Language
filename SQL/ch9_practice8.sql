@@ -50,3 +50,21 @@ SELECT city, country, COUNT(customerId) 고객수
 FROM temp
 GROUP BY city, country
 ORDER BY 1, 2;
+
+
+-- 정답
+WITH temp AS
+(
+		SELECT	O.city, C.country, COUNT(*) 고객수		/* 지점-국가별 고객수, 컬럼 별칭 */
+		FROM 	s_offices O JOIN s_employees E USING (officeCode)
+				JOIN s_customers C ON E.employeeId = C.salesRepId
+		GROUP 	BY O.city, C.country
+)
+SELECT	city, country, 고객수, 
+		(
+			SELECT	AVG(고객수)							/* 컬럼명 */
+			FROM	temp Y
+            WHERE	Y.city = X.city
+		) 고객수평균
+FROM 	temp X
+ORDER 	BY city, country;
