@@ -6,3 +6,15 @@
 -- 성명은 firstName과 lastName으로 구성하며, 사이에 공백 문자(space)가 하나 들어갑니다.
 -- 범위는 본인의 매출액에서 100,000을 뺀 금액, 매출액에서 100,000을 더한 금액, 그리고 그 사이에 '~'가 들어간 문자열입니다.
 -- 결과는 매출액의 내림차순으로 정렬합니다.
+
+SELECT	CONCAT(firstName, ' ', lastName) AS 성명, jobTitle AS 직책, 
+		COALESCE(SUM(amount),0) AS 매출액,
+		CONCAT(COALESCE(SUM(amount),0) - 100000, '~', COALESCE(SUM(amount),0) + 100000) AS 범위,
+		COUNT(*) OVER 
+        (
+			ORDER BY SUM(amount) DESC
+			RANGE BETWEEN 100000 PRECEDING AND 100000 FOLLOWING
+		) AS '범위내 직원수'
+FROM 	s_employees LEFT JOIN s_customers ON employeeId = salesRepId
+		LEFT JOIN s_payments p USING (customerId)
+GROUP	BY 성명;
