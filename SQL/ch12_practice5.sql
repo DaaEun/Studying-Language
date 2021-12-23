@@ -5,3 +5,11 @@
 -- 출력 컬럼은 지점, 성명, 고객수 순으로 합니다.
 -- 담당 지점과 직원이 없는 고객의 경우, 지점명과 직원명에는 각각 '미정'이라고 나타냅니다.
 -- 성명은 firstName과 lastName으로 구성하며, 사이에 공백 문자(space)가 하나 들어갑니다.
+
+
+SELECT	COALESCE(O.city, '미정') AS 지점,
+		COALESCE(CONCAT(firstName, ' ', lastName), '미정') AS 성명, 
+        COUNT(customerId) AS 고객수
+FROM	s_offices O JOIN s_employees USING (officeCode)
+		RIGHT JOIN s_customers ON employeeId = salesRepId
+GROUP 	BY 지점, 성명 WITH ROLLUP;
