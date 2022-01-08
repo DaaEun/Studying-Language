@@ -12,3 +12,8 @@ SELECT CONCAT(emp.firstName, ' ', emp.lastName) AS 직원성명, emp.jobTitle, C
 FROM employees emp LEFT JOIN employees mgr ON emp.managerId = mgr.employeeId
 GROUP BY emp.employeeId
 ORDER BY 1;
+
+-- 정답.
+SELECT	CONCAT(mgr.firstName, ' ', mgr.lastName) AS 성명, mgr.jobTitle, COUNT(emp.employeeId) AS 부하직원수
+FROM 	employees mgr LEFT JOIN employees emp ON mgr.employeeId = emp.managerId
+GROUP 	BY mgr.employeeId;

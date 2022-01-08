@@ -21,3 +21,17 @@ FROM employees E LEFT JOIN customers C ON E.employeeId = C.salesRepId
 	LEFT JOIN p_temp P USING (customerId)
 GROUP BY C.name
 ORDER BY 1; 
+
+
+-- 정답.
+WITH paymentsTemp AS
+(
+		SELECT	*
+        FROM	s_payments
+        WHERE	YEAR(paymentDate) = 2004
+)
+SELECT	name 고객명, CONCAT(firstName, ' ', lastName) 판매담당직원성명, COALESCE(SUM(amount),0) 결재액
+FROM	s_employees RIGHT JOIN s_customers ON employeeId = salesRepId
+		LEFT JOIN paymentsTemp USING (customerId)
+GROUP 	BY customerId
+ORDER 	BY name;

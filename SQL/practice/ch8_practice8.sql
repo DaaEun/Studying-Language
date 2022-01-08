@@ -6,3 +6,22 @@
 -- 결과는 직원 성명의 오름차순으로 정렬합니다.
 -- SQL문을 실행하면 그림과 같이 결과가 나와야 합니다.
 -- 관련 스키마 다이어그램(ERD)을 보시려면 여기를 클릭하세요.
+
+
+
+-- 정답.
+WITH emp AS
+(
+		SELECT	employeeId, CONCAT(firstName, ' ', lastName) name, jobTitle, managerId, city
+        FROM	s_employees JOIN s_offices USING (officeCode)
+),
+mgr AS
+(
+		SELECT	employeeId, CONCAT(firstName, ' ', lastName) name, jobTitle, city
+        FROM	s_employees JOIN s_offices USING (officeCode)
+)
+SELECT	emp.name 직원, emp.jobTitle, emp.city,
+		mgr.name 메니저, mgr.jobTitle, mgr.city
+FROM  	emp JOIN mgr ON emp.managerId = mgr.employeeId
+WHERE	emp.city <> mgr.city
+ORDER 	BY emp.name;
