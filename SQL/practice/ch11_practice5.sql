@@ -27,3 +27,37 @@ WHERE YEAR(paymentDate) = 2004
 GROUP BY O.city
 ORDER BY 1;
 -- 오잉?? 합계요?? / 설마 다음챕터 내용을 알아야 푸나요ㅠㅠ
+
+
+
+-- 정답. 제출
+
+With temp AS
+(
+	SELECT	O.city 지점,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 1 THEN 1 END),0) AS 1월,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 2 THEN 1 END),0) AS 2월,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 3 THEN 1 END),0) AS 3월,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 4 THEN 1 END),0) AS 4월,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 5 THEN 1 END),0) AS 5월,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 6 THEN 1 END),0) AS 6월,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 7 THEN 1 END),0) AS 7월,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 8 THEN 1 END),0) AS 8월,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 9 THEN 1 END),0) AS 9월,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 10 THEN 1 END),0) AS 10월,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 11 THEN 1 END),0) AS 11월,
+			COALESCE(SUM(CASE MONTH(paymentDate) WHEN 12 THEN 1 END),0) AS 12월,
+			COALESCE(COUNT(*),0) 총결재횟수
+	FROM	s_offices O JOIN s_employees USING (officeCode)
+			JOIN s_customers ON employeeId = salesRepId
+			JOIN s_payments USING (customerId)
+	WHERE	YEAR(paymentDate) = 2004
+	GROUP 	BY O.city
+	ORDER 	BY O.city
+)
+SELECT	*
+FROM	temp
+UNION ALL
+SELECT	'합계', SUM(1월), SUM(2월), SUM(3월), SUM(4월), SUM(5월), SUM(6월),
+		SUM(7월), SUM(8월), SUM(9월), SUM(10월), SUM(11월), SUM(12월), SUM(총결재횟수)
+FROM	temp;
